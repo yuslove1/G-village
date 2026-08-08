@@ -1,0 +1,567 @@
+// Gadgetvillage data model.
+//
+// Money rule: every amount in this schema is stored as BigInt in kobo, the
+// minor unit of the naira. 100 kobo = 1 naira. Nothing touching money is ever
+// a float. Formatting to "₦285,000" happens at the edge, never in the database.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------- identity
+
+enum Role {
+  BUYER
+  SELLER
+  AGENT
+  ADMIN
+}
+
+model User {
+  id             String    @id @default(cuid())
+  phone          String    @unique // E.164, the primary identifier in this market
+  email          String?   @unique
+  fullName       String
+  passwordHash   String
+  role           Role      @default(BUYER)
+  phoneVerifiedAt DateTime?
+  emailVerifiedAt DateTime?
+
+  // Lockout counters. Cheap brute force defence that does not need Redis.
+  failedLoginCount Int      @default(0)
+  lockedUntil      DateTime?
+
+  city           String?
+  state          String?
+
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+
+  sessions       Session[]
+  addresses      Address[]
+  orders         Order[]
+  listings       Listing[]        @relation("SellerListings")
+  alerts         Alert[]
+  payoutAccounts PayoutAccount[]
+  ledgerAccounts LedgerAccount[]
+  auditLogs      AuditLog[]
+  inspections    Inspection[]     @relation("AgentInspections")
+  otpChallenges  OtpChallenge[]
+
+  @@index([role])
+  @@index([createdAt])
+}
+
+// Refresh tokens live here as hashes. A stolen database row cannot be replayed
+// as a token because we only ever store the SHA-256 of the secret.
+model Session {
+  id             String    @id @default(cuid())
+  userId         String
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refreshHash    String    @unique
+  family         String    // rotation family, lets us kill a whole chain on reuse
+  userAgent      String?
+  ip             String?
+  expiresAt      DateTime
+  revokedAt      DateTime?
+  replacedById   String?
+  createdAt      DateTime  @default(now())
+
+  @@index([userId])
+  @@index([family])
+  @@index([expiresAt])
+}
+
+model OtpChallenge {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  purpose     String   // phone_verify | password_reset
+  codeHash    String
+  attempts    Int      @default(0)
+  expiresAt   DateTime
+  consumedAt  DateTime?
+  createdAt   DateTime @default(now())
+
+  @@index([userId, purpose])
+}
+
+model Address {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  label      String   // Home, Office
+  line1      String
+  city       String
+  state      String
+  phone      String
+  isDefault  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  deletedAt  DateTime?
+
+  orders     Order[]
+
+  @@index([userId])
+}
+
+// ---------------------------------------------------------------- catalogue
+
+enum Tier {
+  NEW
+  UK_USED
+  NG_USED
+}
+
+enum ListingStatus {
+  DRAFT
+  PENDING_INSPECTION
+  LIVE
+  RESERVED
+  SOLD
+  WITHDRAWN
+}
+
+enum Grade {
+  MINT
+  EXCELLENT
+  GOOD
+  FAIR
+}
+
+model Vendor {
+  id           String   @id @default(cuid())
+  businessName String
+  contactName  String
+  phone        String
+  location     String
+  supplies     String[] // phones, laptops, audio
+  paymentTerms String?
+  notes        String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  listings     Listing[]
+
+  @@index([isActive])
+}
+
+// A Product is the abstract model. A Listing is a specific unit for sale.
+// Splitting them is what lets the appraisal engine reason about "iPhone 13,
+// 128GB" independently of any one battered example of it.
+model Product {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  brand       String
+  model       String
+  variant     String?  // 128GB, 44mm
+  category    String   // phone | laptop | tablet | wearable | audio
+  releaseYear Int?
+  baseNewKobo BigInt   // current new price, the anchor for depreciation
+  specs       Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  listings    Listing[]
+  alerts      Alert[]
+
+  @@index([category])
+  @@index([brand, model])
+}
+
+model Listing {
+  id            String        @id @default(cuid())
+  reference     String        @unique // GV-L-XXXXXX, safe to show publicly
+  productId     String
+  product       Product       @relation(fields: [productId], references: [id])
+  tier          Tier
+  status        ListingStatus @default(DRAFT)
+
+  priceKobo     BigInt        // what the buyer pays
+  costKobo      BigInt?       // what we paid the vendor or seller
+  grade         Grade?
+  batteryHealth Int?          // percent, phones and laptops only
+  descriptionMd String?
+  photos        String[]
+
+  vendorId      String?
+  vendor        Vendor?       @relation(fields: [vendorId], references: [id])
+  sellerId      String?       // set when this came from a member sale
+  seller        User?         @relation("SellerListings", fields: [sellerId], references: [id])
+
+  isCommission  Boolean       @default(false)
+  commissionBps Int?          // basis points, 1500 = 15%
+
+  stockCount    Int           @default(1)
+  publishedAt   DateTime?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  orderItems    OrderItem[]
+  inspection    Inspection?
+  saleRequest   SaleRequest?
+
+  @@index([status, tier])
+  @@index([productId])
+  @@index([sellerId])
+  @@index([publishedAt])
+}
+
+// ---------------------------------------------------------------- orders
+
+enum OrderStatus {
+  PENDING_PAYMENT
+  PAID
+  SOURCING
+  READY
+  IN_TRANSIT
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+model Order {
+  id             String      @id @default(cuid())
+  reference      String      @unique // GV-XXXXXX
+  userId         String
+  user           User        @relation(fields: [userId], references: [id])
+  addressId      String?
+  address        Address?    @relation(fields: [addressId], references: [id])
+
+  status         OrderStatus @default(PENDING_PAYMENT)
+
+  subtotalKobo   BigInt
+  tradeInKobo    BigInt      @default(0)
+  deliveryKobo   BigInt      @default(0)
+  totalKobo      BigInt      // subtotal - tradeIn + delivery, enforced in service
+
+  // Reservation window. Stock is held this long while payment is attempted.
+  reservedUntil  DateTime?
+
+  deliveredAt    DateTime?
+  cancelledAt    DateTime?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  items          OrderItem[]
+  payments       Payment[]
+  events         OrderEvent[]
+  tradeIn        TradeIn?
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model OrderItem {
+  id             String  @id @default(cuid())
+  orderId        String
+  order          Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  listingId      String
+  listing        Listing @relation(fields: [listingId], references: [id])
+  quantity       Int     @default(1)
+  unitPriceKobo  BigInt  // frozen at purchase, never read live off the listing
+  unitCostKobo   BigInt?
+  titleSnapshot  String  // what the buyer saw, for the receipt
+
+  @@index([orderId])
+  @@index([listingId])
+}
+
+// Append-only. Every status change writes a row, nothing is ever updated.
+model OrderEvent {
+  id        String      @id @default(cuid())
+  orderId   String
+  order     Order       @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  status    OrderStatus
+  note      String?
+  actorId   String?
+  createdAt DateTime    @default(now())
+
+  @@index([orderId, createdAt])
+}
+
+// ---------------------------------------------------------------- payments
+
+enum PaymentStatus {
+  INITIATED
+  SUCCESS
+  FAILED
+  ABANDONED
+  REVERSED
+}
+
+enum PaymentChannel {
+  CARD
+  BANK_TRANSFER
+  CASH_ON_DELIVERY
+}
+
+model Payment {
+  id             String         @id @default(cuid())
+  orderId        String
+  order          Order          @relation(fields: [orderId], references: [id])
+  provider       String         @default("paystack")
+  providerRef    String         @unique // Paystack reference
+  channel        PaymentChannel
+  status         PaymentStatus  @default(INITIATED)
+  amountKobo     BigInt
+  // Amount Paystack actually confirmed. Compared against amountKobo before we
+  // ever mark an order paid, because a webhook body is a claim, not a fact.
+  verifiedKobo   BigInt?
+  failureReason  String?
+  paidAt         DateTime?
+  raw            Json?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@index([orderId])
+  @@index([status])
+}
+
+// Every webhook delivery lands here first, keyed by provider event id.
+// A duplicate insert throws, which is how we get idempotency for free.
+model WebhookEvent {
+  id             String   @id @default(cuid())
+  provider       String
+  idempotencyKey String
+  eventType      String
+  payload        Json
+  processedAt    DateTime?
+  error          String?
+  receivedAt     DateTime @default(now())
+
+  @@unique([provider, idempotencyKey])
+  @@index([processedAt])
+}
+
+// Guards double-submitted POSTs from the client (double-tapped Pay button).
+model IdempotencyKey {
+  id           String   @id @default(cuid())
+  key          String
+  userId       String
+  endpoint     String
+  requestHash  String
+  responseBody Json?
+  statusCode   Int?
+  createdAt    DateTime @default(now())
+
+  @@unique([key, userId, endpoint])
+  @@index([createdAt])
+}
+
+// ---------------------------------------------------------------- ledger
+//
+// Double entry. Every movement of money writes two or more Entry rows that sum
+// to zero within one JournalEntry. Balances are derived, never stored on a
+// mutable column, so no race condition can quietly bend the books.
+
+enum AccountType {
+  ASSET
+  LIABILITY
+  EQUITY
+  REVENUE
+  EXPENSE
+}
+
+model LedgerAccount {
+  id        String      @id @default(cuid())
+  code      String      @unique // cash:paystack, user:<id>:payable, revenue:margin
+  name      String
+  type      AccountType
+  userId    String?
+  user      User?       @relation(fields: [userId], references: [id])
+  createdAt DateTime    @default(now())
+
+  entries   LedgerEntry[]
+
+  @@index([type])
+  @@index([userId])
+}
+
+model JournalEntry {
+  id          String        @id @default(cuid())
+  reference   String        @unique
+  description String
+  // What caused this: order_paid, seller_payout, refund, commission
+  reason      String
+  createdAt   DateTime      @default(now())
+
+  entries     LedgerEntry[]
+
+  @@index([reason])
+  @@index([createdAt])
+}
+
+model LedgerEntry {
+  id             String        @id @default(cuid())
+  journalEntryId String
+  journalEntry   JournalEntry  @relation(fields: [journalEntryId], references: [id], onDelete: Cascade)
+  accountId      String
+  account        LedgerAccount @relation(fields: [accountId], references: [id])
+  // Positive is a debit, negative is a credit. Sum across a journal is always 0.
+  amountKobo     BigInt
+  createdAt      DateTime      @default(now())
+
+  @@index([accountId])
+  @@index([journalEntryId])
+}
+
+// ---------------------------------------------------------------- selling
+
+enum SaleMode {
+  DIRECT      // we buy it outright
+  COMMISSION  // we list it, seller keeps title until sold
+}
+
+enum SaleStatus {
+  QUOTED
+  BOOKED
+  INSPECTED
+  APPROVED
+  REJECTED
+  PAID
+  CANCELLED
+}
+
+model SaleRequest {
+  id             String     @id @default(cuid())
+  reference      String     @unique // GV-S-XXXXXX
+  sellerId       String
+  productId      String
+  mode           SaleMode
+  status         SaleStatus @default(QUOTED)
+
+  // What the seller told us
+  claimedGrade   Grade
+  claimedBattery Int?
+  photos         String[]
+
+  quotedKobo     BigInt     // algorithm output at submission
+  quoteExpiresAt DateTime
+  finalKobo      BigInt?    // after inspection, may differ
+
+  pickupType     String?    // pickup | dropoff
+  pickupAt       DateTime?
+  pickupAddress  String?
+
+  listingId      String?    @unique
+  listing        Listing?   @relation(fields: [listingId], references: [id])
+
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  inspection     Inspection?
+
+  @@index([sellerId])
+  @@index([status])
+}
+
+model Inspection {
+  id             String      @id @default(cuid())
+  saleRequestId  String      @unique
+  saleRequest    SaleRequest @relation(fields: [saleRequestId], references: [id])
+  listingId      String?     @unique
+  listing        Listing?    @relation(fields: [listingId], references: [id])
+  agentId        String
+  agent          User        @relation("AgentInspections", fields: [agentId], references: [id])
+
+  // The checklist. iCloud and IMEI are the two that actually lose money.
+  screenMatches  Boolean     @default(false)
+  noHiddenDamage Boolean     @default(false)
+  batteryOk      Boolean     @default(false)
+  powersOn       Boolean     @default(false)
+  notIcloudLocked Boolean    @default(false)
+  imeiClean      Boolean     @default(false)
+
+  imei           String?
+  gradeAssessed  Grade?
+  batteryActual  Int?
+  adjustedKobo   BigInt?
+  notes          String?
+
+  approvedAt     DateTime?
+  rejectedAt     DateTime?
+  rejectReason   String?
+  createdAt      DateTime    @default(now())
+
+  @@index([agentId])
+}
+
+model TradeIn {
+  id             String   @id @default(cuid())
+  orderId        String   @unique
+  order          Order    @relation(fields: [orderId], references: [id])
+  productId      String
+  claimedGrade   Grade
+  claimedBattery Int?
+  creditKobo     BigInt   // applied at checkout, confirmed at handover
+  confirmedKobo  BigInt?
+  confirmedAt    DateTime?
+  createdAt      DateTime @default(now())
+}
+
+model PayoutAccount {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bankCode      String
+  bankName      String
+  accountLast4  String   // full number never stored, only what we show back
+  accountRef    String?  // Paystack recipient code
+  accountName   String
+  isDefault     Boolean  @default(false)
+  createdAt     DateTime @default(now())
+
+  @@index([userId])
+}
+
+// ---------------------------------------------------------------- alerts
+
+model Alert {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId  String?
+  product    Product? @relation(fields: [productId], references: [id])
+  query      String?  // free text when no product is pinned
+  tiers      Tier[]
+  maxKobo    BigInt?
+  viaPush    Boolean  @default(true)
+  viaEmail   Boolean  @default(true)
+  viaSms     Boolean  @default(false)
+  isActive   Boolean  @default(true)
+  lastFiredAt DateTime?
+  createdAt  DateTime @default(now())
+
+  @@index([userId])
+  @@index([productId, isActive])
+}
+
+// ---------------------------------------------------------------- audit
+
+// Who did what, to what, when. Written for every privileged action.
+// Append only. Nothing in the application updates or deletes these rows.
+model AuditLog {
+  id         String   @id @default(cuid())
+  actorId    String?
+  actor      User?    @relation(fields: [actorId], references: [id])
+  action     String   // order.mark_sourced, listing.price_change
+  entityType String
+  entityId   String
+  before     Json?
+  after      Json?
+  ip         String?
+  userAgent  String?
+  createdAt  DateTime @default(now())
+
+  @@index([entityType, entityId])
+  @@index([actorId])
+  @@index([createdAt])
+}
