@@ -1,0 +1,14 @@
+node_modules/
+.next/
+dist/
+build/
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+coverage/
+.turbo/
+*.tsbuildinfo
+prisma/*.db
+Gadgetvillage_README.md
