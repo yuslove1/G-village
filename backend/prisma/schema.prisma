@@ -10,7 +10,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 // ---------------------------------------------------------------- identity
@@ -39,6 +38,14 @@ model User {
   city           String?
   state          String?
 
+  // Notification preferences. Order updates default on — a buyer who turns
+  // this off is opting out of knowing their own delivery is moving, which is
+  // rare enough to warrant an explicit choice rather than a quiet default.
+  // Marketing defaults off for the opposite reason: opt-in, not opt-out.
+  notifyOrderUpdates Boolean @default(true)
+  notifyPriceAlerts  Boolean @default(true)
+  notifyMarketing    Boolean @default(false)
+
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   deletedAt      DateTime?
@@ -48,10 +55,14 @@ model User {
   orders         Order[]
   listings       Listing[]        @relation("SellerListings")
   alerts         Alert[]
+  wishlist       Wishlist[]
+  savedCards     SavedCard[]
   payoutAccounts PayoutAccount[]
+  payouts        Payout[]
   ledgerAccounts LedgerAccount[]
   auditLogs      AuditLog[]
   inspections    Inspection[]     @relation("AgentInspections")
+  assignedSales  SaleRequest[]    @relation("AssignedInspections")
   otpChallenges  OtpChallenge[]
 
   @@index([role])
@@ -206,6 +217,7 @@ model Listing {
   orderItems    OrderItem[]
   inspection    Inspection?
   saleRequest   SaleRequest?
+  wishlistedBy  Wishlist[]
 
   @@index([status, tier])
   @@index([productId])
@@ -323,6 +335,28 @@ model Payment {
 
   @@index([orderId])
   @@index([status])
+}
+
+// A reusable Paystack authorization from a past card payment — not a card
+// number, which Paystack never sends us and we never ask for. authorizationCode
+// is a token scoped to this integration: usable to charge this card again via
+// the Paystack API, useless anywhere else, and revocable on Paystack's side.
+// It is never serialised to the client — every route in payment-methods.routes.ts
+// returns only the masked fields below it.
+model SavedCard {
+  id                String   @id @default(cuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  authorizationCode String   @unique
+  last4             String
+  expMonth          String
+  expYear           String
+  cardType          String   // visa, mastercard, verve
+  bank              String?
+  isDefault         Boolean  @default(false)
+  createdAt         DateTime @default(now())
+
+  @@index([userId])
 }
 
 // Every webhook delivery lands here first, keyed by provider event id.
@@ -451,6 +485,12 @@ model SaleRequest {
   pickupAt       DateTime?
   pickupAddress  String?
 
+  // Null means it's in the open pool — any agent can claim it. Set either by
+  // an admin routing it directly, or by an agent claiming it themselves;
+  // once set, the booking is exclusive to that agent (see admin.routes.ts).
+  assignedAgentId String?
+  assignedAgent   User?      @relation("AssignedInspections", fields: [assignedAgentId], references: [id])
+
   listingId      String?    @unique
   listing        Listing?   @relation(fields: [listingId], references: [id])
 
@@ -461,6 +501,7 @@ model SaleRequest {
 
   @@index([sellerId])
   @@index([status])
+  @@index([assignedAgentId])
 }
 
 model Inspection {
@@ -491,7 +532,40 @@ model Inspection {
   rejectReason   String?
   createdAt      DateTime    @default(now())
 
+  checklistResults InspectionChecklistResult[]
+
   @@index([agentId])
+}
+
+// Admin-defined, on top of the six fixed checks above (which stay in code —
+// they're wired into the approval logic itself: iCloud/IMEI hard-block a
+// sale, the others feed grading). This is for the extra things a category or
+// a season needs an agent to look for that don't warrant a schema change
+// every time — "check the hinge" for laptops, "test both earbuds" for audio.
+// Deactivated rather than deleted so past inspections keep an honest record
+// of what was actually checked at the time, same as Vendor.isActive.
+model ChecklistItem {
+  id        String   @id @default(cuid())
+  label     String
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  results   InspectionChecklistResult[]
+
+  @@index([isActive, order])
+}
+
+model InspectionChecklistResult {
+  id              String        @id @default(cuid())
+  inspectionId    String
+  inspection      Inspection    @relation(fields: [inspectionId], references: [id], onDelete: Cascade)
+  checklistItemId String
+  checklistItem   ChecklistItem @relation(fields: [checklistItemId], references: [id])
+  passed          Boolean
+
+  @@unique([inspectionId, checklistItemId])
+  @@index([inspectionId])
 }
 
 model TradeIn {
@@ -519,7 +593,38 @@ model PayoutAccount {
   isDefault     Boolean  @default(false)
   createdAt     DateTime @default(now())
 
+  payouts       Payout[]
+
   @@index([userId])
+}
+
+enum PayoutStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+// A withdrawal in flight. Created the moment a transfer is initiated with
+// Paystack, but the seller's debt (the liability:user:* ledger account) is
+// only ever reduced once the transfer.success webhook confirms it actually
+// landed — same "never trust the initiation, only the verified outcome"
+// rule payment.service.ts already applies to card payments.
+model Payout {
+  id              String        @id @default(cuid())
+  reference       String        @unique // sent to Paystack as our transfer reference
+  userId          String
+  user            User          @relation(fields: [userId], references: [id])
+  payoutAccountId String
+  payoutAccount   PayoutAccount @relation(fields: [payoutAccountId], references: [id])
+  amountKobo      BigInt
+  status          PayoutStatus  @default(PENDING)
+  transferCode    String?       // Paystack transfer_code
+  failureReason   String?
+  createdAt       DateTime      @default(now())
+  completedAt     DateTime?
+
+  @@index([userId])
+  @@index([status])
 }
 
 // ---------------------------------------------------------------- alerts
@@ -542,6 +647,20 @@ model Alert {
 
   @@index([userId])
   @@index([productId, isActive])
+}
+
+// ---------------------------------------------------------------- wishlist
+
+model Wishlist {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listingId String
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, listingId])
+  @@index([userId])
 }
 
 // ---------------------------------------------------------------- audit
