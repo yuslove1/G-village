@@ -4,6 +4,9 @@ import { Toaster } from "sonner";
 import "@/styles/globals.css";
 import { Providers } from "./providers";
 import { BottomNav } from "@/components/bottom-nav";
+import { TopNav } from "@/components/top-nav";
+import { StaffHomeRedirect } from "@/components/staff-home-redirect";
+import { WelcomeRedirect } from "@/components/welcome-redirect";
 
 /**
  * Fraunces for display, Inter for everything else. The serif does the talking
@@ -61,7 +64,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             Skip to content
           </a>
 
-          <main id="main" className="mx-auto min-h-dvh w-full max-w-lg pb-24">
+          <StaffHomeRedirect />
+          <WelcomeRedirect />
+          <TopNav />
+
+          <main id="main" className="mx-auto min-h-dvh w-full max-w-lg pb-28 lg:max-w-6xl lg:pb-16">
             {children}
           </main>
 

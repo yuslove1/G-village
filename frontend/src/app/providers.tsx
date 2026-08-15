@@ -1,8 +1,9 @@
 "use client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ApiError } from "@/lib/api";
+import { useAuth } from "@/lib/auth-store";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [client] = useState(
@@ -23,6 +24,15 @@ export function Providers({ children }: { children: React.ReactNode }) {
         },
       }),
   );
+
+  // Runs once per load, not per navigation — the access token lives in a
+  // module-level variable (see lib/api.ts), so a client-side route change
+  // never loses it. Only a hard reload does, and that is exactly what this
+  // recovers from via the refresh cookie.
+  const bootstrap = useAuth((s) => s.bootstrap);
+  useEffect(() => {
+    bootstrap();
+  }, [bootstrap]);
 
   return <QueryClientProvider client={client}>{children}</QueryClientProvider>;
 }
