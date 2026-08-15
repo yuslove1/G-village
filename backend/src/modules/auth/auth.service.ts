@@ -12,7 +12,8 @@ import {
   randomToken,
   verifyPassword,
 } from "../../lib/crypto.js";
-import { signAccessToken } from "../../lib/tokens.js";
+import { signAccessToken, signGoogleSignupToken, verifyGoogleSignupToken } from "../../lib/tokens.js";
+import { verifyGoogleIdToken } from "../../lib/google.js";
 
 const MAX_FAILED_LOGINS = 5;
 const LOCKOUT_MINUTES = 15;
@@ -70,6 +71,64 @@ export async function register(input: {
   const otp = await createOtp(user.id, "phone_verify");
   const tokens = await issueSession(user.id, user.role, input.ctx);
 
+  return { user: publicUser(user), ...tokens, devOtp: env.isProd ? undefined : otp };
+}
+
+/**
+ * First half of Google sign-in. A returning user (matched by verified email)
+ * logs straight in, same session shape as password login. A first-time
+ * identity gets a short-lived signup token instead — there is no account to
+ * log into yet because User.phone is required and Google never provides one.
+ */
+export async function loginWithGoogle(idToken: string, ctx: SessionContext) {
+  const identity = await verifyGoogleIdToken(idToken);
+  if (!identity.emailVerified) {
+    throw badRequest("That Google account's email address isn't verified");
+  }
+
+  const user = await prisma.user.findFirst({ where: { email: identity.email, deletedAt: null } });
+  if (user) {
+    const tokens = await issueSession(user.id, user.role, ctx);
+    return { needsPhone: false as const, user: publicUser(user), ...tokens };
+  }
+
+  const signupToken = await signGoogleSignupToken({
+    email: identity.email,
+    fullName: identity.fullName,
+    googleSub: identity.googleSub,
+  });
+  return { needsPhone: true as const, signupToken, fullName: identity.fullName, email: identity.email };
+}
+
+/** Second half — the phone number Google never gave us, then the account is real. */
+export async function completeGoogleSignup(signupToken: string, phone: string, ctx: SessionContext) {
+  const claims = await verifyGoogleSignupToken(signupToken).catch(() => {
+    throw badRequest("That sign-up link expired. Start again with Google.");
+  });
+
+  const existing = await prisma.user.findFirst({
+    where: { OR: [{ phone }, { email: claims.email }] },
+    select: { id: true },
+  });
+  if (existing) throw conflict("An account with those details already exists");
+
+  const user = await prisma.user.create({
+    data: {
+      fullName: claims.fullName,
+      phone,
+      email: claims.email,
+      // No password login for a Google-created account — this hash is
+      // never checked against anything, it only satisfies the schema's
+      // NOT NULL invariant. A high-entropy random value, argon2-hashed
+      // like every real password, so it is exactly as unguessable as one.
+      passwordHash: await hashPassword(randomToken(24)),
+      role: Role.BUYER,
+      emailVerifiedAt: new Date(),
+    },
+  });
+
+  const otp = await createOtp(user.id, "phone_verify");
+  const tokens = await issueSession(user.id, user.role, ctx);
   return { user: publicUser(user), ...tokens, devOtp: env.isProd ? undefined : otp };
 }
 
@@ -245,6 +304,9 @@ export function publicUser(user: {
   phoneVerifiedAt: Date | null;
   city: string | null;
   state: string | null;
+  notifyOrderUpdates: boolean;
+  notifyPriceAlerts: boolean;
+  notifyMarketing: boolean;
 }) {
   return {
     id: user.id,
@@ -255,5 +317,8 @@ export function publicUser(user: {
     phoneVerified: Boolean(user.phoneVerifiedAt),
     city: user.city,
     state: user.state,
+    notifyOrderUpdates: user.notifyOrderUpdates,
+    notifyPriceAlerts: user.notifyPriceAlerts,
+    notifyMarketing: user.notifyMarketing,
   };
 }

@@ -61,6 +61,38 @@ authRouter.post("/login", authLimiter, async (req, res, next) => {
   } catch (err) { next(err); }
 });
 
+authRouter.post("/google", authLimiter, async (req, res, next) => {
+  try {
+    const { idToken } = z.object({ idToken: z.string().min(10) }).parse(req.body);
+    const result = await service.loginWithGoogle(idToken, ctxOf(req));
+
+    if (!result.needsPhone) {
+      res.cookie(refreshCookieName, result.refreshToken, refreshCookieOptions());
+      return res.json({ needsPhone: false, user: result.user, accessToken: result.accessToken });
+    }
+
+    res.json({
+      needsPhone: true,
+      signupToken: result.signupToken,
+      fullName: result.fullName,
+      email: result.email,
+    });
+  } catch (err) { next(err); }
+});
+
+authRouter.post("/google/complete", authLimiter, async (req, res, next) => {
+  try {
+    const body = z.object({ signupToken: z.string().min(10), phone }).parse(req.body);
+    const result = await service.completeGoogleSignup(body.signupToken, body.phone, ctxOf(req));
+    res.cookie(refreshCookieName, result.refreshToken, refreshCookieOptions());
+    res.status(201).json({
+      user: result.user,
+      accessToken: result.accessToken,
+      ...(result.devOtp ? { devOtp: result.devOtp } : {}),
+    });
+  } catch (err) { next(err); }
+});
+
 authRouter.post("/refresh", async (req, res, next) => {
   try {
     const token = req.cookies?.[refreshCookieName];
@@ -102,6 +134,19 @@ authRouter.get("/me", requireAuth, async (req, res, next) => {
   try {
     const user = await prisma.user.findUnique({ where: { id: req.auth!.userId } });
     if (!user) throw unauthorized();
+    res.json({ user: service.publicUser(user) });
+  } catch (err) { next(err); }
+});
+
+authRouter.patch("/notifications", requireAuth, async (req, res, next) => {
+  try {
+    const body = z.object({
+      notifyOrderUpdates: z.boolean().optional(),
+      notifyPriceAlerts: z.boolean().optional(),
+      notifyMarketing: z.boolean().optional(),
+    }).parse(req.body);
+
+    const user = await prisma.user.update({ where: { id: req.auth!.userId }, data: body });
     res.json({ user: service.publicUser(user) });
   } catch (err) { next(err); }
 });
