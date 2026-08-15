@@ -16,6 +16,23 @@ export interface Money {
   display: string;
 }
 
+/**
+ * Where to land right after login/signup. Verification always wins — an
+ * unverified ADMIN still goes to /verify first, not /admin — and staff
+ * roles land in their own tool rather than the marketplace `next` a login
+ * redirect might otherwise carry (e.g. a stray ?next=/checkout from
+ * somewhere they were never actually headed).
+ */
+export function postAuthDestination(
+  user: { role: string; phoneVerified: boolean },
+  next?: string | null,
+): string {
+  if (!user.phoneVerified) return "/verify";
+  if (user.role === "ADMIN") return "/admin";
+  if (user.role === "AGENT") return "/agent";
+  return next || "/account";
+}
+
 /** Only for slider bounds and chart axes. Never for anything a user pays. */
 export function koboToNairaApprox(kobo: string): number {
   return Number(BigInt(kobo) / 100n);
@@ -45,6 +62,16 @@ export const ORDER_STATUS_LABEL: Record<string, string> = {
   REFUNDED: "Refunded",
 };
 
+export const SALE_STATUS_LABEL: Record<string, string> = {
+  QUOTED: "Quote given",
+  BOOKED: "Awaiting pickup",
+  INSPECTED: "Being inspected",
+  APPROVED: "Approved",
+  REJECTED: "Not approved",
+  PAID: "Paid out",
+  CANCELLED: "Cancelled",
+};
+
 export function relativeTime(date: string | Date): string {
   const d = typeof date === "string" ? new Date(date) : date;
   const mins = Math.round((Date.now() - d.getTime()) / 60000);
@@ -55,6 +82,13 @@ export function relativeTime(date: string | Date): string {
   const days = Math.round(hrs / 24);
   if (days < 7) return `${days}d ago`;
   return d.toLocaleDateString("en-NG", { day: "numeric", month: "short" });
+}
+
+/** "Ade Yusuf" -> "AY". Used anywhere a signed-in user gets an avatar circle
+ * instead of a photo. */
+export function initials(fullName: string): string {
+  const parts = fullName.trim().split(/\s+/);
+  return ((parts[0]?.[0] ?? "") + (parts[1]?.[0] ?? "")).toUpperCase();
 }
 
 export function formatDate(date: string | Date): string {
