@@ -9,6 +9,7 @@ import { startPayment, settlePayment } from "../payments/payment.service.js";
 import { money, maybeMoney } from "../../lib/serialize.js";
 import { prisma } from "../../lib/prisma.js";
 import { unauthorized } from "../../lib/errors.js";
+import { renderReceiptPdf } from "../../lib/receipt-pdf.js";
 
 export const orderRouter = Router();
 
@@ -106,7 +107,10 @@ orderRouter.get("/:reference", async (req, res, next) => {
 
 orderRouter.post("/:reference/pay", paymentLimiter, idempotent("orders.pay"), async (req, res, next) => {
   try {
-    const { channel } = z.object({ channel: z.nativeEnum(PaymentChannel) }).parse(req.body);
+    const { channel, savedCardId } = z.object({
+      channel: z.nativeEnum(PaymentChannel),
+      savedCardId: z.string().cuid().optional(),
+    }).parse(req.body);
     const order = await orders.getOrderForUser(req.params.reference ?? "", req.auth!.userId);
 
     const user = await prisma.user.findUnique({ where: { id: req.auth!.userId } });
@@ -119,6 +123,7 @@ orderRouter.post("/:reference/pay", paymentLimiter, idempotent("orders.pay"), as
       // phone-only accounts so a receipt still has somewhere to land.
       email: user.email ?? `${user.phone.replace(/\D/g, "")}@customers.gadgetvillage.ng`,
       channel,
+      savedCardId,
     });
 
     res.json({ payment: result });
@@ -137,25 +142,38 @@ orderRouter.post("/:reference/confirm", async (req, res, next) => {
   } catch (err) { next(err); }
 });
 
+function buildReceipt(o: Awaited<ReturnType<typeof orders.getOrderForUser>>) {
+  return {
+    reference: o.reference,
+    issuedAt: o.payments[0]?.paidAt ?? o.createdAt,
+    paid: o.payments[0]?.status === "SUCCESS",
+    lines: o.items.map((i) => ({
+      description: i.titleSnapshot,
+      quantity: i.quantity,
+      amount: money(i.unitPriceKobo * BigInt(i.quantity)),
+    })),
+    tradeInCredit: maybeMoney(o.tradeInKobo > 0n ? -o.tradeInKobo : null),
+    delivery: money(o.deliveryKobo),
+    total: money(o.totalKobo),
+    deliverTo: o.address ? `${o.address.line1}, ${o.address.city}, ${o.address.state}` : null,
+  };
+}
+
 orderRouter.get("/:reference/receipt", async (req, res, next) => {
   try {
     const o = await orders.getOrderForUser(req.params.reference ?? "", req.auth!.userId);
-    const paid = o.payments[0]?.status === "SUCCESS";
-    res.json({
-      receipt: {
-        reference: o.reference,
-        issuedAt: o.payments[0]?.paidAt ?? o.createdAt,
-        paid,
-        lines: o.items.map((i) => ({
-          description: i.titleSnapshot,
-          quantity: i.quantity,
-          amount: money(i.unitPriceKobo * BigInt(i.quantity)),
-        })),
-        tradeInCredit: maybeMoney(o.tradeInKobo > 0n ? -o.tradeInKobo : null),
-        delivery: money(o.deliveryKobo),
-        total: money(o.totalKobo),
-        deliverTo: o.address ? `${o.address.line1}, ${o.address.city}, ${o.address.state}` : null,
-      },
-    });
+    res.json({ receipt: buildReceipt(o) });
+  } catch (err) { next(err); }
+});
+
+orderRouter.get("/:reference/receipt.pdf", async (req, res, next) => {
+  try {
+    const o = await orders.getOrderForUser(req.params.reference ?? "", req.auth!.userId);
+    const receipt = buildReceipt(o);
+    const pdf = await renderReceiptPdf({ ...receipt, issuedAt: new Date(receipt.issuedAt) });
+
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Disposition", `attachment; filename="receipt-${o.reference}.pdf"`);
+    res.send(pdf);
   } catch (err) { next(err); }
 });
