@@ -1,9 +1,20 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Tokens come straight from the approved screens. Five colours, two faces.
- * The discipline is the point: if a new colour is needed, it goes in here
- * with a name and a reason, not inline as an arbitrary hex.
+ * Two hues, chosen for the relationship between them, not picked separately.
+ * Coral sits at ~358° on the wheel; cyan sits at ~188° — genuine
+ * complements, not an arbitrary pairing. Coral is the only warm colour in
+ * the app and means exactly one thing: tap this (buttons, active states,
+ * the sell FAB). Cyan is the cool counterpart — it never asks for a tap, it
+ * just stages things: the promo gradient, and cyan-soft as the one
+ * product-photo halo everywhere, instead of a different pastel per card.
+ * Warm-on-cool is also why a coral badge reads clearly sitting on a
+ * cyan-soft tile. Amber is analogous to coral (~40° away, still warm) and
+ * stays scoped to ratings/the "UK used" tier so it doesn't compete with the
+ * coral=tappable rule. Mint is the one deliberate outlier: success/verified
+ * is conventionally green everywhere, so it stays outside this system on
+ * purpose. If a new colour is needed, it goes in here with a name and a
+ * reason, not inline as an arbitrary hex.
  */
 const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
@@ -16,22 +27,31 @@ const config: Config = {
           muted: "#73726C",
           faint: "#A8A69D",
         },
-        teal: {
-          DEFAULT: "#0F6E56",
-          soft: "#E4F2EC",
-          bright: "#1D9E75",
+        coral: {
+          DEFAULT: "#FF5A5F",
+          dark: "#E1454A",
+          soft: "#FFE7E8",
+        },
+        cyan: {
+          DEFAULT: "#33C7DE",
+          dark: "#1B9CB3",
+          soft: "#E6F7FA",
         },
         amber: {
-          DEFAULT: "#BA7517",
-          soft: "#FAF0DE",
+          DEFAULT: "#E8A73A",
+          soft: "#FCF1DD",
+        },
+        mint: {
+          DEFAULT: "#1FAA71",
+          soft: "#E1F5EC",
         },
         danger: {
-          DEFAULT: "#B3441F",
-          soft: "#FAECE7",
+          DEFAULT: "#C23A3A",
+          soft: "#FBE9E9",
         },
         canvas: "#FFFFFF",
-        surface: "#F4F2EC",
-        hairline: "#ECEAE2",
+        surface: "#F4F3F9",
+        hairline: "#EAE8F2",
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],
@@ -43,13 +63,23 @@ const config: Config = {
         "display-sm": ["1.375rem", { lineHeight: "1.25" }],
       },
       borderRadius: {
-        card: "1rem",
+        card: "1.25rem",
         pill: "999px",
       },
       boxShadow: {
-        // Deliberately almost nothing. The design leans on hairlines, and a
-        // drop shadow anywhere would read as a different product.
-        lift: "0 1px 2px rgba(20,20,19,0.04)",
+        // Cards float instead of just sitting behind a hairline now, so the
+        // grid reads closer to the reference screens' soft-shadow product
+        // cards. Kept faint and neutral so it works over any tile colour.
+        soft: "0 12px 28px -14px rgba(20,20,19,0.18)",
+        // Only for coral surfaces — a floating CTA / add-to-cart button
+        // wants a coloured glow, not a grey one.
+        button: "0 10px 22px -8px rgba(255,90,95,0.45)",
+        // A solid offset "lip", not a blur — this is what gives the filter
+        // chips a pressable, physical-button feel. Pair with shadow-none and
+        // a matching translate-y on :active so the chip visibly sinks into
+        // the gap the lip leaves behind.
+        edge: "0 3px 0 0 #DDD9EA",
+        "edge-coral": "0 3px 0 0 #E1454A",
       },
       keyframes: {
         "fade-up": {
