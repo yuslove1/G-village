@@ -1,0 +1,49 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<circle cx="42" cy="76" r="19" fill="#F4F2EC"/>
+<g transform="translate(32,66) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></g>
+<circle cx="333" cy="76" r="19" fill="#F4F2EC"/>
+<g transform="translate(323,66) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5v3.6c0 .6-.2 1.2-.6 1.7L5 15.5h14l-1.4-2.2a2.7 2.7 0 0 1-.6-1.7V8a5 5 0 0 0-5-5Z"/><path d="M9.5 18a2.5 2.5 0 0 0 5 0"/></g>
+<rect x="24" y="112" width="327" height="250" rx="24" fill="#F4F2EC"/>
+<rect x="144.3" y="150.6" width="86.4" height="172.8" rx="16.200000000000003" fill="#DEDBD2"/>
+<rect x="149.70000000000002" y="156.0" width="75.60000000000001" height="162.0" rx="12.150000000000002" fill="#262624"/>
+<rect x="172.65" y="164.1" width="29.700000000000003" height="8.775" rx="4.32" fill="#DEDBD2"/>
+<circle cx="187.5" cy="308.54999999999995" r="2.43" fill="#4A4A46"/>
+<rect x="157.8" y="226.2" width="43.2" height="4.050000000000001" rx="2.0250000000000004" fill="#3A3A37"/>
+<rect x="157.8" y="239.7" width="27.0" height="4.050000000000001" rx="2.0250000000000004" fill="#33332F"/>
+<g transform="translate(44,130)"><rect x="0" y="0" width="86" height="26" rx="13" fill="#FFFFFF"/><g transform="translate(8,6) scale(0.5833333333333334)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.3 10.8 15 16 8.8"/></g><text x="28" y="17.5" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#141413">Verified</text></g>
+<text x="24" y="396" font-family="Georgia" font-size="24" fill="#141413">iPhone 12</text>
+<text x="24" y="418" font-family="Helvetica" font-size="12" fill="#73726C">128GB · Blue · Nigeria used · Good condition</text>
+<text x="351" y="396" font-family="Helvetica" font-size="20" font-weight="bold" fill="#141413" text-anchor="end">₦285,000</text>
+<text x="351" y="418" font-family="Helvetica" font-size="11" fill="#0F6E56" text-anchor="end">Save ₦35,000</text>
+<rect x="24" y="452" width="105.1" height="34" rx="17" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<g transform="translate(35,461) scale(0.6666666666666666)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="17" height="8" rx="1.5"/><path d="M21 10.5v3"/></g>
+<text x="56" y="473.5" font-family="Helvetica" font-size="10.5" fill="#141413">91% battery</text>
+<rect x="137.1" y="452" width="117.3" height="34" rx="17" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<g transform="translate(148.1,461) scale(0.6666666666666666)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.6-3 7.6-7 9-4-1.4-7-4.4-7-9V6Z"/><path d="M9 12l2 2 4-4.5"/></g>
+<text x="169.1" y="473.5" font-family="Helvetica" font-size="10.5" fill="#141413">30-day return</text>
+<rect x="262.4" y="452" width="92.9" height="34" rx="17" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<g transform="translate(273.4,461) scale(0.6666666666666666)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></g>
+<text x="294.4" y="473.5" font-family="Helvetica" font-size="10.5" fill="#141413">Inspected</text>
+<text x="24" y="510" font-family="Helvetica" font-size="13.5" font-weight="bold" fill="#141413">About this device</text>
+<text x="24" y="532" font-family="Helvetica" font-size="12" fill="#73726C">In-person verified at our Ikeja hub. Unlocked to all</text>
+<text x="24" y="551" font-family="Helvetica" font-size="12" fill="#73726C">networks. Light scratches on frame, screen flawless.</text>
+<text x="24" y="570" font-family="Helvetica" font-size="12" fill="#73726C">Comes with cable and 30-day return cover.</text>
+<rect x="24" y="604" width="327" height="64" rx="16" fill="#141413"/>
+<text x="44" y="632" font-family="Helvetica" font-size="13" font-weight="bold" fill="#FFFFFF">Trade in your old device</text>
+<text x="44" y="650" font-family="Helvetica" font-size="11" fill="#B9B7AE">Apply instant credit at checkout</text>
+<circle cx="317" cy="636" r="16" fill="#FFFFFF"/>
+<g transform="translate(308,627) scale(0.75)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></g>
+<line x1="0" y1="720" x2="375" y2="720" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="24" y="736" width="157.5" height="52" rx="26" fill="#FFFFFF" stroke="#141413" stroke-width="1.2"/><text x="102.75" y="768" font-family="Helvetica" font-size="14" font-weight="bold" fill="#141413" text-anchor="middle">Add to cart</text>
+<rect x="193.5" y="736" width="157.5" height="52" rx="26" fill="#141413"/><text x="272.25" y="768" font-family="Helvetica" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Buy now</text>
+</svg>

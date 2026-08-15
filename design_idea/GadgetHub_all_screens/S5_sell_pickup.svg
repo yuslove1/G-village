@@ -1,0 +1,55 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<circle cx="42" cy="76" r="19" fill="#F4F2EC"/>
+<g transform="translate(32,66) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></g>
+<rect x="24.0" y="110" width="60.6" height="3" rx="1.5" fill="#141413"/>
+<rect x="90.6" y="110" width="60.6" height="3" rx="1.5" fill="#141413"/>
+<rect x="157.2" y="110" width="60.6" height="3" rx="1.5" fill="#141413"/>
+<rect x="223.79999999999998" y="110" width="60.6" height="3" rx="1.5" fill="#141413"/>
+<rect x="290.4" y="110" width="60.6" height="3" rx="1.5" fill="#141413"/>
+<text x="24" y="134" font-family="Helvetica" font-size="11" fill="#A8A69D">Step 5 of 5</text>
+<text x="24" y="168" font-family="Georgia" font-size="25" fill="#141413">Inspection<tspan fill="#0F6E56">.</tspan></text>
+<text x="24" y="192" font-family="Helvetica" font-size="12" fill="#73726C">Choose how we verify your device</text>
+<rect x="24" y="218" width="327" height="76" rx="16" fill="#E4F2EC" stroke="#0F6E56" stroke-width="1"/>
+<g transform="translate(42,236) scale(0.8333333333333334)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="12" height="9" rx="1"/><path d="M14 10h4l3 3v3h-7Z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></g>
+<text x="72" y="248" font-family="Helvetica" font-size="13" fill="#141413" font-weight="bold">We come to you</text>
+<text x="42" y="274" font-family="Helvetica" font-size="11" fill="#73726C">Free pickup within Lagos · inspected on the spot</text>
+<rect x="24" y="304" width="327" height="76" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<g transform="translate(42,322) scale(0.8333333333333334)" fill="none" stroke="#73726C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z"/><path d="M3 9l2-5h14l2 5"/><path d="M9 21v-6h6v6"/></g>
+<text x="72" y="334" font-family="Helvetica" font-size="13" fill="#141413" font-weight="bold">Drop at our Ikeja hub</text>
+<text x="42" y="360" font-family="Helvetica" font-size="11" fill="#73726C">14 Allen Avenue · Mon–Sat, 9am–6pm</text>
+<text x="24" y="406" font-family="Helvetica" font-size="11" font-weight="bold" fill="#73726C">PICK A DAY</text>
+<rect x="24.0" y="420" width="75.75" height="68" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="61.875" y="446" font-family="Helvetica" font-size="11" fill="#73726C" text-anchor="middle">Mon</text>
+<text x="61.875" y="472" font-family="Georgia" font-size="20" fill="#141413" text-anchor="middle">4</text>
+<rect x="107.75" y="420" width="75.75" height="68" rx="16" fill="#141413"/>
+<text x="145.625" y="446" font-family="Helvetica" font-size="11" fill="#B9B7AE" text-anchor="middle">Tue</text>
+<text x="145.625" y="472" font-family="Georgia" font-size="20" fill="#FFFFFF" text-anchor="middle">5</text>
+<rect x="191.5" y="420" width="75.75" height="68" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="229.375" y="446" font-family="Helvetica" font-size="11" fill="#73726C" text-anchor="middle">Wed</text>
+<text x="229.375" y="472" font-family="Georgia" font-size="20" fill="#141413" text-anchor="middle">6</text>
+<rect x="275.25" y="420" width="75.75" height="68" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="313.125" y="446" font-family="Helvetica" font-size="11" fill="#73726C" text-anchor="middle">Thu</text>
+<text x="313.125" y="472" font-family="Georgia" font-size="20" fill="#141413" text-anchor="middle">7</text>
+<text x="24" y="508" font-family="Helvetica" font-size="11" font-weight="bold" fill="#73726C">TIME WINDOW</text>
+<rect x="24" y="522" width="327" height="58" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<circle cx="46" cy="551" r="9" fill="none" stroke="#A8A69D" stroke-width="1.5"/>
+<text x="68" y="548" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">Morning</text>
+<text x="68" y="566" font-family="Helvetica" font-size="11" fill="#73726C">9am – 12pm</text>
+<rect x="24" y="588" width="327" height="58" rx="16" fill="#E4F2EC" stroke="#0F6E56" stroke-width="1"/>
+<circle cx="46" cy="617" r="9" fill="none" stroke="#0F6E56" stroke-width="1.5"/>
+<circle cx="46" cy="617" r="4.5" fill="#0F6E56"/>
+<text x="68" y="614" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">Afternoon</text>
+<text x="68" y="632" font-family="Helvetica" font-size="11" fill="#73726C">12pm – 4pm</text>
+<line x1="0" y1="720" x2="375" y2="720" stroke="#ECEAE2"/>
+<rect x="24" y="736" width="327" height="52" rx="26.0" fill="#141413"/><text x="187.5" y="767.0" font-family="Helvetica" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Confirm pickup</text>
+</svg>

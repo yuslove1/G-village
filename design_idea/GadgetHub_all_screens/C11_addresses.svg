@@ -1,0 +1,35 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<circle cx="42" cy="76" r="19" fill="#F4F2EC"/>
+<g transform="translate(32,66) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></g>
+<text x="24" y="138" font-family="Georgia" font-size="26" fill="#141413">Addresses<tspan fill="#0F6E56">.</tspan></text>
+<rect x="24" y="180" width="327" height="116" rx="16" fill="#FFFFFF" stroke="#0F6E56" stroke-width="1"/>
+<g transform="translate(40,200) scale(0.7916666666666666)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></g>
+<text x="72" y="214" font-family="Helvetica" font-size="13" fill="#141413" font-weight="bold">Home</text>
+<rect x="112" y="198" width="62.699999999999996" height="20" rx="10.0" fill="#E4F2EC"/><text x="143.35" y="212.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#0F6E56" text-anchor="middle">Default</text>
+<text x="40" y="242" font-family="Helvetica" font-size="11.5" fill="#73726C">14 Allen Avenue, Ikeja, Lagos</text>
+<text x="40" y="262" font-family="Helvetica" font-size="11" fill="#73726C">+234 803 555 0142</text>
+<line x1="40" y1="274" x2="335" y2="274" stroke="#ECEAE2"/>
+<text x="40" y="290" font-family="Helvetica" font-size="11" fill="#141413" font-weight="bold">Edit</text>
+<text x="335" y="290" font-family="Helvetica" font-size="11" fill="#C0492A" text-anchor="end">Delete</text>
+<rect x="24" y="308" width="327" height="116" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<g transform="translate(40,328) scale(0.7916666666666666)" fill="none" stroke="#73726C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></g>
+<text x="72" y="342" font-family="Helvetica" font-size="13" fill="#141413" font-weight="bold">Office</text>
+<text x="40" y="370" font-family="Helvetica" font-size="11.5" fill="#73726C">1 Adeola Odeku, Victoria Island, Lagos</text>
+<text x="40" y="390" font-family="Helvetica" font-size="11" fill="#73726C">+234 803 555 0142</text>
+<line x1="40" y1="402" x2="335" y2="402" stroke="#ECEAE2"/>
+<text x="40" y="418" font-family="Helvetica" font-size="11" fill="#141413" font-weight="bold">Edit</text>
+<text x="335" y="418" font-family="Helvetica" font-size="11" fill="#C0492A" text-anchor="end">Delete</text>
+<rect x="24" y="442" width="327" height="60" rx="16" fill="#FFFFFF" stroke="#A8A69D" stroke-width="1.2" stroke-dasharray="5 5"/>
+<g transform="translate(141.5,463) scale(0.75)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></g>
+<text x="197.5" y="477" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold" text-anchor="middle">Add new address</text>
+</svg>

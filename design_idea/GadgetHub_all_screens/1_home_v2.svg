@@ -1,0 +1,72 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<g transform="translate(24,66) scale(0.6666666666666666)" fill="none" stroke="#73726C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></g>
+<text x="46" y="79" font-family="Helvetica" font-size="12" fill="#73726C">Ikeja, Lagos</text>
+<circle cx="335" cy="74" r="17" fill="#F4F2EC"/>
+<text x="335" y="79" font-family="Helvetica" font-size="12" font-weight="bold" fill="#141413" text-anchor="middle">AO</text>
+<text x="24" y="118" font-family="Georgia" font-size="26" fill="#141413">Find your next</text>
+<text x="24" y="152" font-family="Georgia" font-size="26" fill="#141413">gadget<tspan fill="#0F6E56">.</tspan></text>
+<rect x="24" y="172" width="327" height="48" rx="24" fill="#F4F2EC"/>
+<g transform="translate(42,185) scale(0.8333333333333334)" fill="none" stroke="#73726C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></g>
+<text x="72" y="202" font-family="Helvetica" font-size="13" fill="#A8A69D">Search phones, laptops...</text>
+<text x="24" y="252" font-family="Helvetica" font-size="13.5" font-weight="bold" fill="#141413">All</text>
+<rect x="24" y="260" width="24.4" height="2" rx="1" fill="#0F6E56"/>
+<text x="74.4" y="252" font-family="Helvetica" font-size="13.5" fill="#A8A69D">New</text>
+<text x="124.80000000000001" y="252" font-family="Helvetica" font-size="13.5" fill="#A8A69D">UK used</text>
+<text x="202.4" y="252" font-family="Helvetica" font-size="13.5" fill="#A8A69D">Nigeria used</text>
+<rect x="24" y="282" width="327" height="64" rx="16" fill="#141413"/>
+<text x="44" y="310" font-family="Helvetica" font-size="13.5" font-weight="bold" fill="#FFFFFF">Sell or trade in your gadget</text>
+<text x="44" y="328" font-family="Helvetica" font-size="11.5" fill="#B9B7AE">Instant offer in under a minute</text>
+<circle cx="317" cy="314" r="16" fill="#FFFFFF"/>
+<g transform="translate(308,305) scale(0.75)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></g>
+<rect x="24.0" y="374" width="72.75" height="72.75" rx="18" fill="#F4F2EC"/>
+<g transform="translate(49.375,399.375) scale(0.9166666666666666)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 19h2"/></g>
+<text x="60.375" y="464.75" font-family="Helvetica" font-size="10.5" fill="#73726C" text-anchor="middle">Phones</text>
+<rect x="108.75" y="374" width="72.75" height="72.75" rx="18" fill="#F4F2EC"/>
+<g transform="translate(134.125,399.375) scale(0.9166666666666666)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></g>
+<text x="145.125" y="464.75" font-family="Helvetica" font-size="10.5" fill="#73726C" text-anchor="middle">Laptops</text>
+<rect x="193.5" y="374" width="72.75" height="72.75" rx="18" fill="#F4F2EC"/>
+<g transform="translate(218.875,399.375) scale(0.9166666666666666)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="7" width="8" height="10" rx="2.5"/><path d="M10 7V3.5h4V7M10 17v3.5h4V17"/></g>
+<text x="229.875" y="464.75" font-family="Helvetica" font-size="10.5" fill="#73726C" text-anchor="middle">Wearables</text>
+<rect x="278.25" y="374" width="72.75" height="72.75" rx="18" fill="#F4F2EC"/>
+<g transform="translate(303.625,399.375) scale(0.9166666666666666)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></g>
+<text x="314.625" y="464.75" font-family="Helvetica" font-size="10.5" fill="#73726C" text-anchor="middle">Audio</text>
+<text x="24" y="506" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">Popular near you</text>
+<text x="351" y="506" font-family="Helvetica" font-size="12" fill="#73726C" text-anchor="end">View all</text>
+<rect x="24.0" y="524" width="156.5" height="196" rx="18" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="32.0" y="532" width="140.5" height="108" rx="12" fill="#F4F2EC"/>
+<g transform="translate(89.25,572) scale(1.0833333333333333)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 19h2"/></g>
+<g transform="translate(40.0,544)"><g transform="translate(0,0) scale(0.5833333333333334)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.3 10.8 15 16 8.8"/></g></g>
+<text x="38.0" y="664" font-family="Helvetica" font-size="13" font-weight="bold" fill="#141413">iPhone 12</text>
+<text x="38.0" y="682" font-family="Helvetica" font-size="10.5" fill="#73726C">128GB · New</text>
+<text x="38.0" y="706" font-family="Helvetica" font-size="14.5" font-weight="bold" fill="#141413">₦285,000</text>
+<rect x="194.5" y="524" width="156.5" height="196" rx="18" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="202.5" y="532" width="140.5" height="108" rx="12" fill="#F4F2EC"/>
+<g transform="translate(259.75,572) scale(1.0833333333333333)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></g>
+<g transform="translate(210.5,544)"><g transform="translate(0,0) scale(0.5833333333333334)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.3 10.8 15 16 8.8"/></g></g>
+<text x="208.5" y="664" font-family="Helvetica" font-size="13" font-weight="bold" fill="#141413">MacBook Air M1</text>
+<text x="208.5" y="682" font-family="Helvetica" font-size="10.5" fill="#73726C">NG used · Verified</text>
+<text x="208.5" y="706" font-family="Helvetica" font-size="14.5" font-weight="bold" fill="#141413">₦420,000</text>
+<line x1="0" y1="734" x2="375" y2="734" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="0" y="734" width="375" height="78" fill="#FFFFFF" fill-opacity="0"/>
+<g transform="translate(27.5,752) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></g>
+<text x="37.5" y="786" font-family="Helvetica" font-size="10" fill="#141413" text-anchor="middle">Home</text>
+<circle cx="37.5" cy="796" r="2" fill="#0F6E56"/>
+<g transform="translate(102.5,752) scale(0.8333333333333334)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.2"/></g>
+<text x="112.5" y="786" font-family="Helvetica" font-size="10" fill="#A8A69D" text-anchor="middle">Browse</text>
+<circle cx="187.5" cy="766" r="23" fill="#141413"/>
+<g transform="translate(177.5,756) scale(0.8333333333333334)" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></g>
+<g transform="translate(252.5,752) scale(0.8333333333333334)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5v3.6c0 .6-.2 1.2-.6 1.7L5 15.5h14l-1.4-2.2a2.7 2.7 0 0 1-.6-1.7V8a5 5 0 0 0-5-5Z"/><path d="M9.5 18a2.5 2.5 0 0 0 5 0"/></g>
+<text x="262.5" y="786" font-family="Helvetica" font-size="10" fill="#A8A69D" text-anchor="middle">Alerts</text>
+<g transform="translate(327.5,752) scale(0.8333333333333334)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></g>
+<text x="337.5" y="786" font-family="Helvetica" font-size="10" fill="#A8A69D" text-anchor="middle">Account</text>
+</svg>

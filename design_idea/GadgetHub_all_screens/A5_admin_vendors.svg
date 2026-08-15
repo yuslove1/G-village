@@ -1,0 +1,62 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<text x="24" y="74" font-family="Helvetica" font-size="10.5" fill="#A8A69D" font-weight="bold">ADMIN</text>
+<text x="24" y="104" font-family="Georgia" font-size="26" fill="#141413">Vendors<tspan fill="#0F6E56">.</tspan></text>
+<circle cx="333" cy="92" r="19" fill="#141413"/>
+<g transform="translate(323,82) scale(0.8333333333333334)" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></g>
+<rect x="24" y="134" width="327" height="78" rx="16" fill="#F4F2EC"/>
+<text x="42" y="160" font-family="Helvetica" font-size="11" fill="#73726C">This month</text>
+<text x="42" y="184" font-family="Helvetica" font-size="13" fill="#141413" font-weight="bold">₦3.2m sourced across 8 vendors</text>
+<text x="42" y="202" font-family="Helvetica" font-size="10.5" fill="#0F6E56">Avg margin 9.4%</text>
+<text x="24" y="236" font-family="Helvetica" font-size="13.5" fill="#141413" font-weight="bold">Your vendors</text>
+<rect x="24" y="250" width="327" height="116" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="38" y="268" width="44" height="44" rx="12" fill="#F4F2EC"/>
+<g transform="translate(51,281) scale(0.75)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z"/><path d="M3 9l2-5h14l2 5"/><path d="M9 21v-6h6v6"/></g>
+<text x="96" y="286" font-family="Helvetica" font-size="13" fill="#141413" font-weight="bold">Emeka Gadgets</text>
+<text x="96" y="304" font-family="Helvetica" font-size="10.5" fill="#73726C">CV Ikeja · Phones, tablets</text>
+<g transform="translate(325,278) scale(0.7083333333333334)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></g>
+<line x1="38" y1="326" x2="337" y2="326" stroke="#ECEAE2"/>
+<text x="38" y="348" font-family="Helvetica" font-size="11" fill="#73726C">42 orders</text>
+<text x="150" y="348" font-family="Helvetica" font-size="11" fill="#141413" font-weight="bold">Margin 9.1%</text>
+<rect x="268.2" y="336" width="68.8" height="20" rx="10.0" fill="#E4F2EC"/><text x="302.59999999999997" y="350.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#0F6E56" text-anchor="middle">Reliable</text>
+<rect x="24" y="376" width="327" height="116" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="38" y="394" width="44" height="44" rx="12" fill="#F4F2EC"/>
+<g transform="translate(51,407) scale(0.75)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z"/><path d="M3 9l2-5h14l2 5"/><path d="M9 21v-6h6v6"/></g>
+<text x="96" y="412" font-family="Helvetica" font-size="13" fill="#141413" font-weight="bold">Bright Imports</text>
+<text x="96" y="430" font-family="Helvetica" font-size="10.5" fill="#73726C">CV Ikeja · UK used stock</text>
+<g transform="translate(325,404) scale(0.7083333333333334)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></g>
+<line x1="38" y1="452" x2="337" y2="452" stroke="#ECEAE2"/>
+<text x="38" y="474" font-family="Helvetica" font-size="11" fill="#73726C">23 orders</text>
+<text x="150" y="474" font-family="Helvetica" font-size="11" fill="#141413" font-weight="bold">Margin 11.2%</text>
+<rect x="268.2" y="462" width="68.8" height="20" rx="10.0" fill="#E4F2EC"/><text x="302.59999999999997" y="476.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#0F6E56" text-anchor="middle">Reliable</text>
+<rect x="24" y="502" width="327" height="116" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="38" y="520" width="44" height="44" rx="12" fill="#F4F2EC"/>
+<g transform="translate(51,533) scale(0.75)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z"/><path d="M3 9l2-5h14l2 5"/><path d="M9 21v-6h6v6"/></g>
+<text x="96" y="538" font-family="Helvetica" font-size="13" fill="#141413" font-weight="bold">Kola Tech Hub</text>
+<text x="96" y="556" font-family="Helvetica" font-size="10.5" fill="#73726C">CV Ikeja · Laptops</text>
+<g transform="translate(325,530) scale(0.7083333333333334)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></g>
+<line x1="38" y1="578" x2="337" y2="578" stroke="#ECEAE2"/>
+<text x="38" y="600" font-family="Helvetica" font-size="11" fill="#73726C">9 orders</text>
+<text x="150" y="600" font-family="Helvetica" font-size="11" fill="#141413" font-weight="bold">Margin 7.8%</text>
+<rect x="243.8" y="588" width="93.19999999999999" height="20" rx="10.0" fill="#FAF0DE"/><text x="290.4" y="602.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#BA7517" text-anchor="middle">Slow replies</text>
+<rect x="0" y="734" width="375" height="78" fill="#FFFFFF"/>
+<line x1="0" y1="734" x2="375" y2="734" stroke="#ECEAE2" stroke-width="1"/>
+<g transform="translate(36.875,750) scale(0.8333333333333334)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></g>
+<text x="46.875" y="784" font-family="Helvetica" font-size="10" fill="#A8A69D" text-anchor="middle">Overview</text>
+<g transform="translate(130.625,750) scale(0.8333333333333334)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5Z"/><path d="M3 8l9 5 9-5M12 13v8"/></g>
+<text x="140.625" y="784" font-family="Helvetica" font-size="10" fill="#A8A69D" text-anchor="middle">Orders</text>
+<g transform="translate(224.375,750) scale(0.8333333333333334)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/></g>
+<text x="234.375" y="784" font-family="Helvetica" font-size="10" fill="#A8A69D" text-anchor="middle">Stock</text>
+<g transform="translate(318.125,750) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M2.5 19a6.5 6.5 0 0 1 13 0"/><path d="M16 5.5a3.4 3.4 0 0 1 0 6.6"/><path d="M17.5 19a6.5 6.5 0 0 0-2-4.7"/></g>
+<text x="328.125" y="784" font-family="Helvetica" font-size="10" fill="#141413" text-anchor="middle">Vendors</text>
+<circle cx="328.125" cy="794" r="2" fill="#0F6E56"/>
+</svg>

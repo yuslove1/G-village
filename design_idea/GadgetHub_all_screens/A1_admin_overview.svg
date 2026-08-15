@@ -1,0 +1,68 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<text x="24" y="74" font-family="Helvetica" font-size="10.5" fill="#A8A69D" font-weight="bold">ADMIN</text>
+<text x="24" y="104" font-family="Georgia" font-size="26" fill="#141413">Today<tspan fill="#0F6E56">.</tspan></text>
+<circle cx="333" cy="92" r="19" fill="#F4F2EC"/>
+<g transform="translate(323,82) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5v3.6c0 .6-.2 1.2-.6 1.7L5 15.5h14l-1.4-2.2a2.7 2.7 0 0 1-.6-1.7V8a5 5 0 0 0-5-5Z"/><path d="M9.5 18a2.5 2.5 0 0 0 5 0"/></g>
+<circle cx="343" cy="80" r="4" fill="#BA7517"/>
+<rect x="24" y="128" width="327" height="116" rx="20" fill="#141413"/>
+<text x="44" y="158" font-family="Helvetica" font-size="10.5" fill="#B9B7AE" font-weight="bold">REVENUE TODAY</text>
+<text x="44" y="198" font-family="Georgia" font-size="30" fill="#FFFFFF">₦412,000</text>
+<g transform="translate(44,212) scale(0.5833333333333334)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></g>
+<text x="66" y="223" font-family="Helvetica" font-size="11" fill="#B9B7AE">+18% vs yesterday · 9 orders</text>
+<rect x="24.0" y="264" width="103.66666666666667" height="76" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="75.83333333333334" y="300" font-family="Georgia" font-size="22" fill="#141413" text-anchor="middle">6</text>
+<text x="75.83333333333334" y="320" font-family="Helvetica" font-size="10.5" fill="#73726C" text-anchor="middle">To fulfil</text>
+<rect x="65.83333333333334" y="328" width="20" height="2.5" rx="1.25" fill="#BA7517"/>
+<rect x="135.66666666666669" y="264" width="103.66666666666667" height="76" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="187.50000000000003" y="300" font-family="Georgia" font-size="22" fill="#141413" text-anchor="middle">3</text>
+<text x="187.50000000000003" y="320" font-family="Helvetica" font-size="10.5" fill="#73726C" text-anchor="middle">Inspections</text>
+<rect x="177.50000000000003" y="328" width="20" height="2.5" rx="1.25" fill="#0F6E56"/>
+<rect x="247.33333333333334" y="264" width="103.66666666666667" height="76" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="299.1666666666667" y="300" font-family="Georgia" font-size="22" fill="#141413" text-anchor="middle">2</text>
+<text x="299.1666666666667" y="320" font-family="Helvetica" font-size="10.5" fill="#73726C" text-anchor="middle">Payouts</text>
+<rect x="289.1666666666667" y="328" width="20" height="2.5" rx="1.25" fill="#73726C"/>
+<text x="24" y="364" font-family="Helvetica" font-size="14" fill="#141413" font-weight="bold">Needs your action</text>
+<text x="351" y="364" font-family="Helvetica" font-size="11.5" fill="#73726C" text-anchor="end">View all</text>
+<rect x="24" y="380" width="327" height="76" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="38" y="398" width="40" height="40" rx="11" fill="#FAF0DE"/>
+<g transform="translate(48,408) scale(0.8333333333333334)" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></g>
+<text x="92" y="414" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">Confirm vendor price</text>
+<text x="92" y="432" font-family="Helvetica" font-size="10.5" fill="#73726C">iPhone 12 · Order #GH-10482</text>
+<rect x="294.4" y="398" width="56.599999999999994" height="22" rx="11.0" fill="#FAF0DE"/><text x="322.7" y="413.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#BA7517" text-anchor="middle">Urgent</text>
+<g transform="translate(327,422) scale(0.625)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5.5 16 12l-7 6.5"/></g>
+<rect x="24" y="466" width="327" height="76" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="38" y="484" width="40" height="40" rx="11" fill="#E4F2EC"/>
+<g transform="translate(48,494) scale(0.8333333333333334)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.6-3 7.6-7 9-4-1.4-7-4.4-7-9V6Z"/><path d="M9 12l2 2 4-4.5"/></g>
+<text x="92" y="500" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">Inspect device</text>
+<text x="92" y="518" font-family="Helvetica" font-size="10.5" fill="#73726C">iPhone 13 · Pickup today 12–4pm</text>
+<rect x="300.5" y="484" width="50.5" height="22" rx="11.0" fill="#E4F2EC"/><text x="325.75" y="499.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#0F6E56" text-anchor="middle">Today</text>
+<g transform="translate(327,508) scale(0.625)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5.5 16 12l-7 6.5"/></g>
+<rect x="24" y="552" width="327" height="76" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="38" y="570" width="40" height="40" rx="11" fill="#F4F2EC"/>
+<g transform="translate(48,580) scale(0.8333333333333334)" fill="none" stroke="#73726C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M17 12.5h2.5"/><path d="M3 9.5h18"/></g>
+<text x="92" y="586" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">Pay seller</text>
+<text x="92" y="604" font-family="Helvetica" font-size="10.5" fill="#73726C">Galaxy S22 · ₦178,000</text>
+<rect x="312.7" y="570" width="38.3" height="22" rx="11.0" fill="#F4F2EC"/><text x="331.84999999999997" y="585.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#73726C" text-anchor="middle">Due</text>
+<g transform="translate(327,594) scale(0.625)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5.5 16 12l-7 6.5"/></g>
+<rect x="0" y="734" width="375" height="78" fill="#FFFFFF"/>
+<line x1="0" y1="734" x2="375" y2="734" stroke="#ECEAE2" stroke-width="1"/>
+<g transform="translate(36.875,750) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></g>
+<text x="46.875" y="784" font-family="Helvetica" font-size="10" fill="#141413" text-anchor="middle">Overview</text>
+<circle cx="46.875" cy="794" r="2" fill="#0F6E56"/>
+<g transform="translate(130.625,750) scale(0.8333333333333334)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5Z"/><path d="M3 8l9 5 9-5M12 13v8"/></g>
+<text x="140.625" y="784" font-family="Helvetica" font-size="10" fill="#A8A69D" text-anchor="middle">Orders</text>
+<g transform="translate(224.375,750) scale(0.8333333333333334)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/></g>
+<text x="234.375" y="784" font-family="Helvetica" font-size="10" fill="#A8A69D" text-anchor="middle">Stock</text>
+<g transform="translate(318.125,750) scale(0.8333333333333334)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M2.5 19a6.5 6.5 0 0 1 13 0"/><path d="M16 5.5a3.4 3.4 0 0 1 0 6.6"/><path d="M17.5 19a6.5 6.5 0 0 0-2-4.7"/></g>
+<text x="328.125" y="784" font-family="Helvetica" font-size="10" fill="#A8A69D" text-anchor="middle">Vendors</text>
+</svg>

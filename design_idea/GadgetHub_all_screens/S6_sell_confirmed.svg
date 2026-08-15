@@ -1,0 +1,44 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<circle cx="187.5" cy="130" r="38" fill="#E4F2EC"/>
+<g transform="translate(173.5,116) scale(1.1666666666666667)" fill="none" stroke="#0F6E56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></g>
+<text x="187.5" y="206" font-family="Georgia" font-size="25" fill="#141413" text-anchor="middle">Pickup booked</text>
+<text x="187.5" y="232" font-family="Helvetica" font-size="12" fill="#73726C" text-anchor="middle">Ref #SL-2291 · Tue 5 Aug, 12–4pm</text>
+<rect x="24" y="268" width="327" height="132" rx="20" fill="#F4F2EC"/>
+<rect x="42" y="290" width="64" height="64" rx="14" fill="#FFFFFF"/>
+<rect x="61.84" y="297.68" width="24.32" height="48.64" rx="4.5600000000000005" fill="#DEDBD2"/>
+<rect x="63.36000000000001" y="299.2" width="21.28" height="45.6" rx="3.4200000000000004" fill="#262624"/>
+<rect x="69.82" y="301.48" width="8.36" height="2.47" rx="1.2160000000000002" fill="#DEDBD2"/>
+<rect x="65.64" y="318.96" width="12.16" height="1.1400000000000001" rx="0.5700000000000001" fill="#3A3A37"/>
+<rect x="65.64" y="322.76" width="7.600000000000001" height="1.1400000000000001" rx="0.5700000000000001" fill="#33332F"/>
+<text x="122" y="310" font-family="Helvetica" font-size="13.5" fill="#141413" font-weight="bold">iPhone 13, 128GB</text>
+<text x="122" y="329" font-family="Helvetica" font-size="11" fill="#73726C">Sell direct · Light marks · 87%</text>
+<text x="122" y="358" font-family="Georgia" font-size="22" fill="#141413">₦224,500</text>
+<line x1="42" y1="374" x2="333" y2="374" stroke="#ECEAE2"/>
+<text x="42" y="390" font-family="Helvetica" font-size="10.5" fill="#73726C">Final amount confirmed after inspection</text>
+<text x="24" y="424" font-family="Helvetica" font-size="13.5" fill="#141413" font-weight="bold">What happens next</text>
+<circle cx="36" cy="456" r="9" fill="#0F6E56" stroke="#0F6E56" stroke-width="1.5"/>
+<g transform="translate(30,450) scale(0.5)" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></g>
+<line x1="36" y1="467" x2="36" y2="500" stroke="#ECEAE2" stroke-width="1.5"/>
+<text x="58" y="457" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">Our agent arrives</text>
+<text x="58" y="474" font-family="Helvetica" font-size="11" fill="#73726C">Tue 5 Aug, between 12pm and 4pm</text>
+<circle cx="36" cy="512" r="9" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1.5"/>
+<text x="36" y="516" font-family="Helvetica" font-size="10" font-weight="bold" fill="#A8A69D" text-anchor="middle">2</text>
+<line x1="36" y1="523" x2="36" y2="556" stroke="#ECEAE2" stroke-width="1.5"/>
+<text x="58" y="513" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">Device inspected</text>
+<text x="58" y="530" font-family="Helvetica" font-size="11" fill="#73726C">Takes about 10 minutes on the spot</text>
+<circle cx="36" cy="568" r="9" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1.5"/>
+<text x="36" y="572" font-family="Helvetica" font-size="10" font-weight="bold" fill="#A8A69D" text-anchor="middle">3</text>
+<text x="58" y="569" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">You get paid</text>
+<text x="58" y="586" font-family="Helvetica" font-size="11" fill="#73726C">Bank transfer the same day</text>
+<rect x="24" y="736" width="327" height="52" rx="26.0" fill="#141413"/><text x="187.5" y="767.0" font-family="Helvetica" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Track this sale</text>
+</svg>

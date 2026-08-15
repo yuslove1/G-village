@@ -1,0 +1,80 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<circle cx="42" cy="76" r="19" fill="#F4F2EC"/>
+<g transform="translate(32,66) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></g>
+<text x="24" y="138" font-family="Georgia" font-size="26" fill="#141413">Orders<tspan fill="#0F6E56">.</tspan></text>
+<text x="24" y="176" font-family="Helvetica" font-size="13.5" fill="#141413" font-weight="bold">All</text>
+<rect x="24" y="184" width="24.4" height="2" rx="1" fill="#0F6E56"/>
+<text x="74.4" y="176" font-family="Helvetica" font-size="13.5" fill="#A8A69D">Active</text>
+<text x="145.2" y="176" font-family="Helvetica" font-size="13.5" fill="#A8A69D">Completed</text>
+<rect x="24" y="208" width="327" height="120" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="38" y="234" font-family="Helvetica" font-size="11" fill="#A8A69D" font-weight="bold">#GH-10482</text>
+<rect x="233.4" y="222" width="117.6" height="22" rx="11.0" fill="#E4F2EC"/><text x="292.2" y="237.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#0F6E56" text-anchor="middle">Out for delivery</text>
+<rect x="38" y="246" width="54" height="54" rx="12" fill="#F4F2EC"/>
+<rect x="55.08" y="253.16" width="19.84" height="39.68" rx="3.7199999999999998" fill="#DEDBD2"/>
+<rect x="56.32" y="254.4" width="17.36" height="37.2" rx="2.79" fill="#262624"/>
+<rect x="61.59" y="256.26" width="6.82" height="2.015" rx="0.992" fill="#DEDBD2"/>
+<rect x="58.18" y="270.52" width="9.92" height="0.9299999999999999" rx="0.46499999999999997" fill="#3A3A37"/>
+<rect x="58.18" y="273.62" width="6.199999999999999" height="0.9299999999999999" rx="0.46499999999999997" fill="#33332F"/>
+<text x="106" y="264" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">iPhone 12, 128GB</text>
+<text x="106" y="282" font-family="Helvetica" font-size="10.5" fill="#73726C">Aug 2, 2026</text>
+<text x="337" y="264" font-family="Helvetica" font-size="13" fill="#141413" font-weight="bold" text-anchor="end">₦225,000</text>
+<line x1="38" y1="308" x2="337" y2="308" stroke="#ECEAE2"/>
+<g transform="translate(38,314) scale(0.5416666666666666)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-2-1.3L14 21l-2-1.3L10 21l-2-1.3L6 21Z"/><path d="M8.5 8h7M8.5 11.5h7M8.5 15h4"/></g>
+<text x="58" y="324" font-family="Helvetica" font-size="10.5" fill="#0F6E56" font-weight="bold">Receipt</text>
+<text x="337" y="324" font-family="Helvetica" font-size="10.5" fill="#141413" font-weight="bold" text-anchor="end">Track</text>
+<rect x="24" y="338" width="327" height="120" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="38" y="364" font-family="Helvetica" font-size="11" fill="#A8A69D" font-weight="bold">#GH-10390</text>
+<rect x="276.1" y="352" width="74.9" height="22" rx="11.0" fill="#F4F2EC"/><text x="313.55" y="367.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#73726C" text-anchor="middle">Delivered</text>
+<rect x="38" y="376" width="54" height="54" rx="12" fill="#F4F2EC"/>
+<rect x="55.08" y="383.16" width="19.84" height="39.68" rx="3.7199999999999998" fill="#DEDBD2"/>
+<rect x="56.32" y="384.40000000000003" width="17.36" height="37.2" rx="2.79" fill="#262624"/>
+<rect x="61.59" y="386.26000000000005" width="6.82" height="2.015" rx="0.992" fill="#DEDBD2"/>
+<rect x="58.18" y="400.52" width="9.92" height="0.9299999999999999" rx="0.46499999999999997" fill="#3A3A37"/>
+<rect x="58.18" y="403.62" width="6.199999999999999" height="0.9299999999999999" rx="0.46499999999999997" fill="#33332F"/>
+<text x="106" y="394" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">AirPods Pro 2</text>
+<text x="106" y="412" font-family="Helvetica" font-size="10.5" fill="#73726C">Jul 21, 2026</text>
+<text x="337" y="394" font-family="Helvetica" font-size="13" fill="#141413" font-weight="bold" text-anchor="end">₦142,000</text>
+<line x1="38" y1="438" x2="337" y2="438" stroke="#ECEAE2"/>
+<g transform="translate(38,444) scale(0.5416666666666666)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-2-1.3L14 21l-2-1.3L10 21l-2-1.3L6 21Z"/><path d="M8.5 8h7M8.5 11.5h7M8.5 15h4"/></g>
+<text x="58" y="454" font-family="Helvetica" font-size="10.5" fill="#0F6E56" font-weight="bold">Receipt</text>
+<text x="337" y="454" font-family="Helvetica" font-size="10.5" fill="#141413" font-weight="bold" text-anchor="end">Track</text>
+<rect x="24" y="468" width="327" height="120" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="38" y="494" font-family="Helvetica" font-size="11" fill="#A8A69D" font-weight="bold">#GH-10288</text>
+<rect x="276.1" y="482" width="74.9" height="22" rx="11.0" fill="#F4F2EC"/><text x="313.55" y="497.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#73726C" text-anchor="middle">Delivered</text>
+<rect x="38" y="506" width="54" height="54" rx="12" fill="#F4F2EC"/>
+<rect x="55.08" y="513.16" width="19.84" height="39.68" rx="3.7199999999999998" fill="#DEDBD2"/>
+<rect x="56.32" y="514.4" width="17.36" height="37.2" rx="2.79" fill="#262624"/>
+<rect x="61.59" y="516.26" width="6.82" height="2.015" rx="0.992" fill="#DEDBD2"/>
+<rect x="58.18" y="530.52" width="9.92" height="0.9299999999999999" rx="0.46499999999999997" fill="#3A3A37"/>
+<rect x="58.18" y="533.62" width="6.199999999999999" height="0.9299999999999999" rx="0.46499999999999997" fill="#33332F"/>
+<text x="106" y="524" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">Galaxy Tab S8</text>
+<text x="106" y="542" font-family="Helvetica" font-size="10.5" fill="#73726C">Jul 4, 2026</text>
+<text x="337" y="524" font-family="Helvetica" font-size="13" fill="#141413" font-weight="bold" text-anchor="end">₦265,000</text>
+<line x1="38" y1="568" x2="337" y2="568" stroke="#ECEAE2"/>
+<g transform="translate(38,574) scale(0.5416666666666666)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-2-1.3L14 21l-2-1.3L10 21l-2-1.3L6 21Z"/><path d="M8.5 8h7M8.5 11.5h7M8.5 15h4"/></g>
+<text x="58" y="584" font-family="Helvetica" font-size="10.5" fill="#0F6E56" font-weight="bold">Receipt</text>
+<text x="337" y="584" font-family="Helvetica" font-size="10.5" fill="#141413" font-weight="bold" text-anchor="end">Track</text>
+<rect x="0" y="734" width="375" height="78" fill="#FFFFFF"/>
+<line x1="0" y1="734" x2="375" y2="734" stroke="#ECEAE2" stroke-width="1"/>
+<g transform="translate(27.5,752) scale(0.8333333333333334)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></g>
+<text x="37.5" y="786" font-family="Helvetica" font-size="10" fill="#A8A69D" text-anchor="middle">Home</text>
+<g transform="translate(102.5,752) scale(0.8333333333333334)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.2"/></g>
+<text x="112.5" y="786" font-family="Helvetica" font-size="10" fill="#A8A69D" text-anchor="middle">Browse</text>
+<circle cx="187.5" cy="766" r="23" fill="#141413"/>
+<g transform="translate(177.5,756) scale(0.8333333333333334)" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></g>
+<g transform="translate(252.5,752) scale(0.8333333333333334)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5v3.6c0 .6-.2 1.2-.6 1.7L5 15.5h14l-1.4-2.2a2.7 2.7 0 0 1-.6-1.7V8a5 5 0 0 0-5-5Z"/><path d="M9.5 18a2.5 2.5 0 0 0 5 0"/></g>
+<text x="262.5" y="786" font-family="Helvetica" font-size="10" fill="#A8A69D" text-anchor="middle">Alerts</text>
+<g transform="translate(327.5,752) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></g>
+<text x="337.5" y="786" font-family="Helvetica" font-size="10" fill="#141413" text-anchor="middle">Account</text>
+<circle cx="337.5" cy="796" r="2" fill="#0F6E56"/>
+</svg>

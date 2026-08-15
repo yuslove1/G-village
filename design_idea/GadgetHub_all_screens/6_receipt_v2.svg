@@ -1,0 +1,37 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<circle cx="187.5" cy="120" r="36" fill="#E4F2EC"/>
+<g transform="translate(174.5,107) scale(1.0833333333333333)" fill="none" stroke="#0F6E56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></g>
+<text x="187.5" y="190" font-family="Georgia" font-size="24" fill="#141413" text-anchor="middle">Payment successful</text>
+<text x="187.5" y="214" font-family="Helvetica" font-size="12" fill="#73726C" text-anchor="middle">Order #GH-10482 · Aug 2, 2026</text>
+<rect x="24" y="250" width="327" height="300" rx="20" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<g transform="translate(44,272) scale(0.75)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-2-1.3L14 21l-2-1.3L10 21l-2-1.3L6 21Z"/><path d="M8.5 8h7M8.5 11.5h7M8.5 15h4"/></g>
+<text x="72" y="286" font-family="Helvetica" font-size="13" font-weight="bold" fill="#141413">Digital receipt</text>
+<line x1="44" y1="306" x2="331" y2="306" stroke="#ECEAE2" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="44" y="332" font-family="Helvetica" font-size="12" fill="#73726C">Item</text>
+<text x="331" y="332" font-family="Helvetica" font-size="12" font-weight="bold" fill="#141413" text-anchor="end">iPhone 12, 128GB</text>
+<text x="44" y="362" font-family="Helvetica" font-size="12" fill="#73726C">Condition</text>
+<text x="331" y="362" font-family="Helvetica" font-size="12" font-weight="bold" fill="#141413" text-anchor="end">Nigeria used · Verified</text>
+<text x="44" y="392" font-family="Helvetica" font-size="12" fill="#73726C">Price</text>
+<text x="331" y="392" font-family="Helvetica" font-size="12" font-weight="bold" fill="#141413" text-anchor="end">₦285,000</text>
+<text x="44" y="422" font-family="Helvetica" font-size="12" fill="#73726C">Trade-in credit</text>
+<text x="331" y="422" font-family="Helvetica" font-size="12" font-weight="bold" fill="#141413" text-anchor="end">–₦60,000</text>
+<text x="44" y="452" font-family="Helvetica" font-size="12" fill="#73726C">Delivery</text>
+<text x="331" y="452" font-family="Helvetica" font-size="12" font-weight="bold" fill="#141413" text-anchor="end">Free</text>
+<line x1="44" y1="482" x2="331" y2="482" stroke="#ECEAE2" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="44" y="512" font-family="Helvetica" font-size="13" font-weight="bold" fill="#141413">Total paid</text>
+<text x="331" y="514" font-family="Georgia" font-size="19" fill="#141413" text-anchor="end">₦225,000</text>
+<g transform="translate(44,531) scale(0.6666666666666666)" fill="none" stroke="#73726C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="12" height="9" rx="1"/><path d="M14 10h4l3 3v3h-7Z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></g>
+<text x="68" y="544" font-family="Helvetica" font-size="11" fill="#73726C">Hand delivery to Allen Avenue, Ikeja · 1–2 days</text>
+<rect x="24" y="578" width="157.5" height="52" rx="26" fill="#FFFFFF" stroke="#141413" stroke-width="1.2"/><text x="102.75" y="610" font-family="Helvetica" font-size="14" font-weight="bold" fill="#141413" text-anchor="middle">Download PDF</text>
+<rect x="193.5" y="578" width="157.5" height="52" rx="26" fill="#141413"/><text x="272.25" y="610" font-family="Helvetica" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Track order</text>
+</svg>

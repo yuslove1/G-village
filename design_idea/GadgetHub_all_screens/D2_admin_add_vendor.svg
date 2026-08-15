@@ -1,0 +1,45 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<circle cx="42" cy="76" r="19" fill="#F4F2EC"/>
+<g transform="translate(32,66) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></g>
+<text x="24" y="128" font-family="Helvetica" font-size="10.5" fill="#A8A69D" font-weight="bold">ADMIN</text>
+<text x="24" y="160" font-family="Georgia" font-size="25" fill="#141413">Add vendor<tspan fill="#0F6E56">.</tspan></text>
+<text x="24" y="196" font-family="Helvetica" font-size="11" font-weight="bold" fill="#73726C">BUSINESS NAME</text>
+<rect x="24" y="208" width="327" height="46" rx="14" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="40" y="235.5" font-family="Helvetica" font-size="13" fill="#141413">Emeka Gadgets</text>
+<text x="24" y="266" font-family="Helvetica" font-size="11" font-weight="bold" fill="#73726C">CONTACT PERSON</text>
+<rect x="24" y="278" width="327" height="46" rx="14" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="40" y="305.5" font-family="Helvetica" font-size="13" fill="#141413">Emeka Nwachukwu</text>
+<text x="24" y="336" font-family="Helvetica" font-size="11" font-weight="bold" fill="#73726C">PHONE / WHATSAPP</text>
+<rect x="24" y="348" width="327" height="46" rx="14" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="40" y="375.5" font-family="Helvetica" font-size="13" fill="#141413">+234 806 221 7745</text>
+<text x="24" y="406" font-family="Helvetica" font-size="11" font-weight="bold" fill="#73726C">LOCATION</text>
+<rect x="24" y="418" width="327" height="46" rx="14" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="40" y="445.5" font-family="Helvetica" font-size="13" fill="#141413">Shop 42, CV Ikeja</text>
+<text x="24" y="476" font-family="Helvetica" font-size="11" font-weight="bold" fill="#73726C">SUPPLIES</text>
+<rect x="24" y="490" width="65.6" height="34" rx="17" fill="#E4F2EC" stroke="#0F6E56"/>
+<text x="56.8" y="512" font-family="Helvetica" font-size="12" fill="#0F6E56" font-weight="bold" text-anchor="middle">Phones</text>
+<rect x="97.6" y="490" width="72.19999999999999" height="34" rx="17" fill="#E4F2EC" stroke="#0F6E56"/>
+<text x="133.7" y="512" font-family="Helvetica" font-size="12" fill="#0F6E56" font-weight="bold" text-anchor="middle">Tablets</text>
+<rect x="177.79999999999998" y="490" width="72.19999999999999" height="34" rx="17" fill="#FFFFFF" stroke="#ECEAE2"/>
+<text x="213.89999999999998" y="512" font-family="Helvetica" font-size="12" fill="#73726C" text-anchor="middle">Laptops</text>
+<rect x="258.0" y="490" width="59.0" height="34" rx="17" fill="#FFFFFF" stroke="#ECEAE2"/>
+<text x="287.5" y="512" font-family="Helvetica" font-size="12" fill="#73726C" text-anchor="middle">Audio</text>
+<rect x="24" y="532" width="85.4" height="34" rx="17" fill="#FFFFFF" stroke="#ECEAE2"/>
+<text x="66.7" y="554" font-family="Helvetica" font-size="12" fill="#73726C" text-anchor="middle">Wearables</text>
+<text x="24" y="590" font-family="Helvetica" font-size="11" font-weight="bold" fill="#73726C">TYPICAL PAYMENT TERMS</text>
+<rect x="24" y="602" width="327" height="46" rx="14" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="40" y="629.5" font-family="Helvetica" font-size="13" fill="#141413">Same day on pickup</text>
+<g transform="translate(323,617.0) scale(0.6666666666666666)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5.5 16 12l-7 6.5"/></g>
+<line x1="0" y1="720" x2="375" y2="720" stroke="#ECEAE2"/>
+<rect x="24" y="736" width="327" height="52" rx="26.0" fill="#141413"/><text x="187.5" y="767.0" font-family="Helvetica" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Save vendor</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<circle cx="42" cy="76" r="19" fill="#F4F2EC"/>
+<g transform="translate(32,66) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></g>
+<text x="24" y="128" font-family="Helvetica" font-size="10.5" fill="#A8A69D" font-weight="bold">INSPECTION · #SL-2291</text>
+<text x="24" y="160" font-family="Georgia" font-size="25" fill="#141413">iPhone 13<tspan fill="#0F6E56">.</tspan></text>
+<rect x="24" y="190" width="327" height="62" rx="16" fill="#F4F2EC"/>
+<text x="42" y="216" font-family="Helvetica" font-size="11" fill="#73726C">Seller claimed</text>
+<text x="42" y="236" font-family="Helvetica" font-size="11.5" fill="#141413" font-weight="bold">Light marks · 87% battery · ₦224,500</text>
+<text x="24" y="274" font-family="Helvetica" font-size="11" font-weight="bold" fill="#73726C">VERIFY EACH ITEM</text>
+<rect x="24" y="286" width="327" height="284" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="40" y="306" width="22" height="22" rx="7" fill="#0F6E56"/>
+<g transform="translate(43.5,309.5) scale(0.625)" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></g>
+<text x="74" y="322" font-family="Helvetica" font-size="12" fill="#141413">Screen matches photos</text>
+<rect x="40" y="352" width="22" height="22" rx="7" fill="#0F6E56"/>
+<g transform="translate(43.5,355.5) scale(0.625)" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></g>
+<text x="74" y="368" font-family="Helvetica" font-size="12" fill="#141413">No hidden cracks or dents</text>
+<rect x="40" y="398" width="22" height="22" rx="7" fill="#0F6E56"/>
+<g transform="translate(43.5,401.5) scale(0.625)" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></g>
+<text x="74" y="414" font-family="Helvetica" font-size="12" fill="#141413">Battery health confirmed</text>
+<rect x="40" y="444" width="22" height="22" rx="7" fill="#0F6E56"/>
+<g transform="translate(43.5,447.5) scale(0.625)" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></g>
+<text x="74" y="460" font-family="Helvetica" font-size="12" fill="#141413">Powers on and functions</text>
+<rect x="40" y="490" width="22" height="22" rx="7" fill="#FFFFFF" stroke="#A8A69D" stroke-width="1.4"/>
+<text x="74" y="506" font-family="Helvetica" font-size="12" fill="#73726C">Not iCloud locked</text>
+<rect x="40" y="536" width="22" height="22" rx="7" fill="#FFFFFF" stroke="#A8A69D" stroke-width="1.4"/>
+<text x="74" y="552" font-family="Helvetica" font-size="12" fill="#73726C">IMEI clean, not blacklisted</text>
+<text x="24" y="590" font-family="Helvetica" font-size="11" font-weight="bold" fill="#73726C">ADJUST OFFER</text>
+<rect x="24" y="602" width="327" height="84" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="42" y="630" font-family="Helvetica" font-size="11" fill="#73726C">Verified offer</text>
+<text x="42" y="664" font-family="Georgia" font-size="24" fill="#141413">₦224,500</text>
+<text x="333" y="660" font-family="Helvetica" font-size="11" fill="#0F6E56" font-weight="bold" text-anchor="end">No change</text>
+<line x1="0" y1="720" x2="375" y2="720" stroke="#ECEAE2"/>
+<rect x="24" y="736" width="157.5" height="52" rx="26.0" fill="#FFFFFF" stroke="#141413" stroke-width="1.2"/><text x="102.75" y="767.0" font-family="Helvetica" font-size="14" font-weight="bold" fill="#141413" text-anchor="middle">Reject</text>
+<rect x="193.5" y="736" width="157.5" height="52" rx="26.0" fill="#141413"/><text x="272.25" y="767.0" font-family="Helvetica" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Approve</text>
+</svg>

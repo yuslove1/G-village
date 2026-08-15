@@ -1,0 +1,53 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<circle cx="42" cy="76" r="19" fill="#F4F2EC"/>
+<g transform="translate(32,66) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></g>
+<rect x="24.0" y="110" width="60.6" height="3" rx="1.5" fill="#141413"/>
+<rect x="90.6" y="110" width="60.6" height="3" rx="1.5" fill="#141413"/>
+<rect x="157.2" y="110" width="60.6" height="3" rx="1.5" fill="#141413"/>
+<rect x="223.79999999999998" y="110" width="60.6" height="3" rx="1.5" fill="#ECEAE2"/>
+<rect x="290.4" y="110" width="60.6" height="3" rx="1.5" fill="#ECEAE2"/>
+<text x="24" y="134" font-family="Helvetica" font-size="11" fill="#A8A69D">Step 3 of 5</text>
+<text x="24" y="168" font-family="Georgia" font-size="25" fill="#141413">Add photos<tspan fill="#0F6E56">.</tspan></text>
+<text x="24" y="192" font-family="Helvetica" font-size="12" fill="#73726C">Four angles so buyers know exactly what they get</text>
+<rect x="24.0" y="216" width="157.5" height="128" rx="16" fill="#F4F2EC"/>
+<rect x="86.11" y="240.72" width="33.28" height="66.56" rx="6.24" fill="#DEDBD2"/>
+<rect x="88.19" y="242.8" width="29.12" height="62.400000000000006" rx="4.68" fill="#262624"/>
+<rect x="97.03" y="245.92" width="11.440000000000001" height="3.38" rx="1.6640000000000001" fill="#DEDBD2"/>
+<rect x="91.31" y="269.84" width="16.64" height="1.56" rx="0.78" fill="#3A3A37"/>
+<rect x="91.31" y="275.04" width="10.399999999999999" height="1.56" rx="0.78" fill="#33332F"/>
+<circle cx="161.5" cy="236" r="12" fill="#FFFFFF"/>
+<g transform="translate(154.5,229) scale(0.5833333333333334)" fill="none" stroke="#0F6E56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></g>
+<text x="102.75" y="362" font-family="Helvetica" font-size="11" fill="#73726C" text-anchor="middle">Front</text>
+<rect x="193.5" y="216" width="157.5" height="128" rx="16" fill="#F4F2EC"/>
+<rect x="255.61" y="240.72" width="33.28" height="66.56" rx="6.24" fill="#DEDBD2"/>
+<rect x="257.69" y="242.8" width="29.12" height="62.400000000000006" rx="4.68" fill="#262624"/>
+<rect x="266.53" y="245.92" width="11.440000000000001" height="3.38" rx="1.6640000000000001" fill="#DEDBD2"/>
+<rect x="260.81" y="269.84" width="16.64" height="1.56" rx="0.78" fill="#3A3A37"/>
+<rect x="260.81" y="275.04" width="10.399999999999999" height="1.56" rx="0.78" fill="#33332F"/>
+<circle cx="331.0" cy="236" r="12" fill="#FFFFFF"/>
+<g transform="translate(324.0,229) scale(0.5833333333333334)" fill="none" stroke="#0F6E56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></g>
+<text x="272.25" y="362" font-family="Helvetica" font-size="11" fill="#73726C" text-anchor="middle">Back</text>
+<rect x="24.0" y="356" width="157.5" height="128" rx="16" fill="#FFFFFF" stroke="#A8A69D" stroke-width="1.2" stroke-dasharray="5 5"/>
+<g transform="translate(91.75,404.0) scale(0.9166666666666666)" fill="none" stroke="#73726C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13.5" r="3.4"/></g>
+<text x="102.75" y="502" font-family="Helvetica" font-size="11" fill="#73726C" text-anchor="middle">Screen on</text>
+<rect x="193.5" y="356" width="157.5" height="128" rx="16" fill="#FFFFFF" stroke="#A8A69D" stroke-width="1.2" stroke-dasharray="5 5"/>
+<g transform="translate(261.25,404.0) scale(0.9166666666666666)" fill="none" stroke="#73726C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13.5" r="3.4"/></g>
+<text x="272.25" y="502" font-family="Helvetica" font-size="11" fill="#73726C" text-anchor="middle">Sides</text>
+<rect x="24" y="522" width="327" height="76" rx="16" fill="#FAF0DE"/>
+<g transform="translate(42,538) scale(0.8333333333333334)" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.6-3 7.6-7 9-4-1.4-7-4.4-7-9V6Z"/><path d="M9 12l2 2 4-4.5"/></g>
+<text x="72" y="550" font-family="Helvetica" font-size="12" fill="#141413" font-weight="bold">Photos are checked at inspection</text>
+<text x="72" y="568" font-family="Helvetica" font-size="11" fill="#73726C">If the device differs from your photos we</text>
+<text x="72" y="584" font-family="Helvetica" font-size="11" fill="#73726C">revise the offer before any payment.</text>
+<line x1="0" y1="720" x2="375" y2="720" stroke="#ECEAE2"/>
+<rect x="24" y="736" width="327" height="52" rx="26.0" fill="#141413"/><text x="187.5" y="767.0" font-family="Helvetica" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Continue</text>
+</svg>

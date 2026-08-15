@@ -1,0 +1,60 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<circle cx="42" cy="76" r="19" fill="#F4F2EC"/>
+<g transform="translate(32,66) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></g>
+<text x="24" y="128" font-family="Helvetica" font-size="10.5" fill="#A8A69D" font-weight="bold">ADMIN</text>
+<text x="24" y="160" font-family="Georgia" font-size="25" fill="#141413">Analytics<tspan fill="#0F6E56">.</tspan></text>
+<rect x="24" y="192" width="65.6" height="32" rx="16" fill="#FFFFFF" stroke="#ECEAE2"/>
+<text x="56.8" y="213" font-family="Helvetica" font-size="11.5" fill="#73726C" text-anchor="middle">7 days</text>
+<rect x="97.6" y="192" width="72.19999999999999" height="32" rx="16" fill="#141413" stroke="#141413"/>
+<text x="133.7" y="213" font-family="Helvetica" font-size="11.5" fill="#FFFFFF" font-weight="bold" text-anchor="middle">30 days</text>
+<rect x="177.79999999999998" y="192" width="45.8" height="32" rx="16" fill="#FFFFFF" stroke="#ECEAE2"/>
+<text x="200.7" y="213" font-family="Helvetica" font-size="11.5" fill="#73726C" text-anchor="middle">All</text>
+<rect x="24" y="244" width="327" height="172" rx="20" fill="#141413"/>
+<text x="44" y="272" font-family="Helvetica" font-size="10.5" fill="#B9B7AE" font-weight="bold">REVENUE · 30 DAYS</text>
+<text x="44" y="308" font-family="Georgia" font-size="28" fill="#FFFFFF">₦3,240,000</text>
+<g transform="translate(44,320) scale(0.5416666666666666)" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></g>
+<text x="64" y="330" font-family="Helvetica" font-size="10.5" fill="#B9B7AE">+22% vs previous 30 days</text>
+<rect x="44.0" y="374.16" width="18" height="21.84" rx="4" fill="#3A3A37"/>
+<rect x="73.88888888888889" y="367.4" width="18" height="28.6" rx="4" fill="#3A3A37"/>
+<rect x="103.77777777777777" y="376.24" width="18" height="19.76" rx="4" fill="#3A3A37"/>
+<rect x="133.66666666666669" y="360.64" width="18" height="35.36" rx="4" fill="#3A3A37"/>
+<rect x="163.55555555555554" y="370.0" width="18" height="26.0" rx="4" fill="#3A3A37"/>
+<rect x="193.44444444444446" y="355.44" width="18" height="40.56" rx="4" fill="#3A3A37"/>
+<rect x="223.33333333333334" y="363.76" width="18" height="32.24" rx="4" fill="#3A3A37"/>
+<rect x="253.22222222222223" y="351.8" width="18" height="44.199999999999996" rx="4" fill="#3A3A37"/>
+<rect x="283.1111111111111" y="359.6" width="18" height="36.4" rx="4" fill="#3A3A37"/>
+<rect x="313.0" y="346.6" width="18" height="49.4" rx="4" fill="#0F6E56"/>
+<rect x="24.0" y="436" width="157.5" height="72" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="40.0" y="472" font-family="Georgia" font-size="20" fill="#0F6E56">₦294k</text>
+<text x="40.0" y="492" font-family="Helvetica" font-size="10.5" fill="#73726C">Total margin</text>
+<rect x="193.5" y="436" width="157.5" height="72" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="209.5" y="472" font-family="Georgia" font-size="20" fill="#141413">9.1%</text>
+<text x="209.5" y="492" font-family="Helvetica" font-size="10.5" fill="#73726C">Avg margin</text>
+<rect x="24.0" y="520" width="157.5" height="72" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="40.0" y="556" font-family="Georgia" font-size="20" fill="#141413">112</text>
+<text x="40.0" y="576" font-family="Helvetica" font-size="10.5" fill="#73726C">Orders</text>
+<rect x="193.5" y="520" width="157.5" height="72" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<text x="209.5" y="556" font-family="Georgia" font-size="20" fill="#141413">₦28.9k</text>
+<text x="209.5" y="576" font-family="Helvetica" font-size="10.5" fill="#73726C">Avg order</text>
+<text x="24" y="616" font-family="Helvetica" font-size="13.5" fill="#141413" font-weight="bold">Top sellers</text>
+<rect x="24" y="630" width="327" height="58" fill="#FFFFFF"/>
+<text x="24" y="654" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">iPhone 12, 128GB</text>
+<text x="24" y="672" font-family="Helvetica" font-size="10.5" fill="#73726C">18 sold</text>
+<text x="351" y="654" font-family="Helvetica" font-size="11.5" fill="#0F6E56" font-weight="bold" text-anchor="end">₦414k margin</text>
+<line x1="24" y1="688" x2="351" y2="688" stroke="#ECEAE2"/>
+<rect x="24" y="696" width="327" height="58" fill="#FFFFFF"/>
+<text x="24" y="720" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">Galaxy A54</text>
+<text x="24" y="738" font-family="Helvetica" font-size="10.5" fill="#73726C">14 sold</text>
+<text x="351" y="720" font-family="Helvetica" font-size="11.5" fill="#0F6E56" font-weight="bold" text-anchor="end">₦182k margin</text>
+<line x1="24" y1="754" x2="351" y2="754" stroke="#ECEAE2"/>
+</svg>

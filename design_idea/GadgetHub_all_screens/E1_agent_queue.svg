@@ -1,0 +1,67 @@
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+<rect width="375" height="812" fill="#FFFFFF"/>
+
+<text x="24" y="28" font-family="Helvetica" font-size="15" font-weight="bold" fill="#141413">9:41</text>
+<g transform="translate(305,17)" fill="#141413">
+  <rect x="0" y="6" width="3" height="6" rx="0.5"/>
+  <rect x="5" y="4" width="3" height="8" rx="0.5"/>
+  <rect x="10" y="1.5" width="3" height="10.5" rx="0.5"/>
+  <rect x="17" y="2" width="16" height="10" rx="2.5" fill="none" stroke="#141413" stroke-width="1.2"/>
+  <rect x="19" y="4" width="12" height="6" rx="1" fill="#141413"/>
+</g>
+<text x="24" y="74" font-family="Helvetica" font-size="10.5" fill="#A8A69D" font-weight="bold">AGENT · MUSA</text>
+<text x="24" y="104" font-family="Georgia" font-size="26" fill="#141413">Today<tspan fill="#0F6E56">.</tspan></text>
+<circle cx="333" cy="92" r="19" fill="#F4F2EC"/>
+<g transform="translate(323,82) scale(0.8333333333333334)" fill="none" stroke="#141413" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5v3.6c0 .6-.2 1.2-.6 1.7L5 15.5h14l-1.4-2.2a2.7 2.7 0 0 1-.6-1.7V8a5 5 0 0 0-5-5Z"/><path d="M9.5 18a2.5 2.5 0 0 0 5 0"/></g>
+<rect x="24" y="132" width="327" height="72" rx="16" fill="#141413"/>
+<text x="42" y="162" font-family="Helvetica" font-size="13" fill="#FFFFFF" font-weight="bold">3 inspections booked</text>
+<text x="42" y="182" font-family="Helvetica" font-size="11" fill="#B9B7AE">Lagos · Tue 5 Aug</text>
+<rect x="24" y="228" width="327" height="122" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="292.6" y="244" width="44.4" height="20" rx="10.0" fill="#E4F2EC"/><text x="314.8" y="258.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#0F6E56" text-anchor="middle">Next</text>
+<rect x="38" y="244" width="52" height="52" rx="12" fill="#F4F2EC"/>
+<rect x="54.4" y="250.8" width="19.2" height="38.4" rx="3.5999999999999996" fill="#DEDBD2"/>
+<rect x="55.6" y="252.0" width="16.8" height="36.0" rx="2.6999999999999997" fill="#262624"/>
+<rect x="60.7" y="253.8" width="6.6" height="1.95" rx="0.96" fill="#DEDBD2"/>
+<rect x="57.4" y="267.6" width="9.6" height="0.8999999999999999" rx="0.44999999999999996" fill="#3A3A37"/>
+<rect x="57.4" y="270.6" width="6.0" height="0.8999999999999999" rx="0.44999999999999996" fill="#33332F"/>
+<text x="104" y="264" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">iPhone 13, 128GB</text>
+<text x="104" y="282" font-family="Helvetica" font-size="10.5" fill="#73726C">Chidi O. · Lekki Phase 1</text>
+<g transform="translate(104,290) scale(0.5)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></g>
+<text x="122" y="300" font-family="Helvetica" font-size="10.5" fill="#73726C">12–4pm</text>
+<line x1="38" y1="314" x2="337" y2="314" stroke="#ECEAE2"/>
+<text x="38" y="336" font-family="Helvetica" font-size="10.5" fill="#73726C">Offer</text>
+<text x="76" y="336" font-family="Helvetica" font-size="11.5" fill="#141413" font-weight="bold">₦224,500</text>
+<text x="337" y="336" font-family="Helvetica" font-size="11" fill="#0F6E56" font-weight="bold" text-anchor="end">Start inspection</text>
+<rect x="24" y="360" width="327" height="122" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="262.1" y="376" width="74.9" height="20" rx="10.0" fill="#F4F2EC"/><text x="299.55" y="390.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#73726C" text-anchor="middle">Scheduled</text>
+<rect x="38" y="376" width="52" height="52" rx="12" fill="#F4F2EC"/>
+<rect x="54.4" y="382.8" width="19.2" height="38.4" rx="3.5999999999999996" fill="#DEDBD2"/>
+<rect x="55.6" y="384.0" width="16.8" height="36.0" rx="2.6999999999999997" fill="#262624"/>
+<rect x="60.7" y="385.8" width="6.6" height="1.95" rx="0.96" fill="#DEDBD2"/>
+<rect x="57.4" y="399.6" width="9.6" height="0.8999999999999999" rx="0.44999999999999996" fill="#3A3A37"/>
+<rect x="57.4" y="402.6" width="6.0" height="0.8999999999999999" rx="0.44999999999999996" fill="#33332F"/>
+<text x="104" y="396" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">Galaxy S22</text>
+<text x="104" y="414" font-family="Helvetica" font-size="10.5" fill="#73726C">Bola A. · Surulere</text>
+<g transform="translate(104,422) scale(0.5)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></g>
+<text x="122" y="432" font-family="Helvetica" font-size="10.5" fill="#73726C">4–6pm</text>
+<line x1="38" y1="446" x2="337" y2="446" stroke="#ECEAE2"/>
+<text x="38" y="468" font-family="Helvetica" font-size="10.5" fill="#73726C">Offer</text>
+<text x="76" y="468" font-family="Helvetica" font-size="11.5" fill="#141413" font-weight="bold">₦178,000</text>
+<text x="337" y="468" font-family="Helvetica" font-size="11" fill="#0F6E56" font-weight="bold" text-anchor="end">Start inspection</text>
+<rect x="24" y="492" width="327" height="122" rx="16" fill="#FFFFFF" stroke="#ECEAE2" stroke-width="1"/>
+<rect x="262.1" y="508" width="74.9" height="20" rx="10.0" fill="#F4F2EC"/><text x="299.55" y="522.0" font-family="Helvetica" font-size="10.5" font-weight="bold" fill="#73726C" text-anchor="middle">Scheduled</text>
+<rect x="38" y="508" width="52" height="52" rx="12" fill="#F4F2EC"/>
+<rect x="54.4" y="514.8" width="19.2" height="38.4" rx="3.5999999999999996" fill="#DEDBD2"/>
+<rect x="55.6" y="516.0" width="16.8" height="36.0" rx="2.6999999999999997" fill="#262624"/>
+<rect x="60.7" y="517.8" width="6.6" height="1.95" rx="0.96" fill="#DEDBD2"/>
+<rect x="57.4" y="531.6" width="9.6" height="0.8999999999999999" rx="0.44999999999999996" fill="#3A3A37"/>
+<rect x="57.4" y="534.6" width="6.0" height="0.8999999999999999" rx="0.44999999999999996" fill="#33332F"/>
+<text x="104" y="528" font-family="Helvetica" font-size="12.5" fill="#141413" font-weight="bold">iPad Air 4</text>
+<text x="104" y="546" font-family="Helvetica" font-size="10.5" fill="#73726C">Kemi T. · Yaba</text>
+<g transform="translate(104,554) scale(0.5)" fill="none" stroke="#A8A69D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></g>
+<text x="122" y="564" font-family="Helvetica" font-size="10.5" fill="#73726C">Tomorrow</text>
+<line x1="38" y1="578" x2="337" y2="578" stroke="#ECEAE2"/>
+<text x="38" y="600" font-family="Helvetica" font-size="10.5" fill="#73726C">Offer</text>
+<text x="76" y="600" font-family="Helvetica" font-size="11.5" fill="#141413" font-weight="bold">₦196,500</text>
+<text x="337" y="600" font-family="Helvetica" font-size="11" fill="#0F6E56" font-weight="bold" text-anchor="end">Start inspection</text>
+</svg>
