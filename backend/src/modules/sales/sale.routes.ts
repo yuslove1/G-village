@@ -6,7 +6,7 @@ import { customAlphabet } from "nanoid";
 import { prisma } from "../../lib/prisma.js";
 import { requireAuth } from "../../middleware/auth.js";
 import { quoteLimiter } from "../../middleware/rateLimit.js";
-import { appraise } from "../../lib/appraisal.js";
+import { appraise, tradeInCredit } from "../../lib/appraisal.js";
 import { money, maybeMoney } from "../../lib/serialize.js";
 import { badRequest, conflict, notFound } from "../../lib/errors.js";
 
@@ -52,6 +52,28 @@ saleRouter.post("/quote", quoteLimiter, async (req, res, next) => {
         validUntil: addDays(new Date(), 7),
       },
     });
+  } catch (err) { next(err); }
+});
+
+// The checkout trade-in step needs the actual applied credit, not the sell
+// flow's offer — tradeInCredit() shaves 7% off appraise()'s offer to cover
+// the device going uninspected at the point this credit is granted (see
+// lib/appraisal.ts). Showing the seller-facing offer here instead would
+// quote a bigger number than what createOrder() actually applies.
+saleRouter.post("/trade-in-quote", quoteLimiter, async (req, res, next) => {
+  try {
+    const body = deviceSchema.parse(req.body);
+    const product = await prisma.product.findUnique({ where: { id: body.productId } });
+    if (!product) throw notFound("That device");
+
+    const creditKobo = tradeInCredit({
+      baseNewKobo: product.baseNewKobo,
+      category: product.category,
+      ...body,
+      batteryHealth: body.batteryHealth ?? null,
+    });
+
+    res.json({ credit: money(creditKobo) });
   } catch (err) { next(err); }
 });
 
@@ -117,17 +139,29 @@ saleRouter.get("/", async (req, res, next) => {
       include: { listing: { include: { product: true } }, inspection: true },
     });
 
+    // SaleRequest.productId is a bare string, not a Prisma relation (the
+    // schema never declared one), so the device name has to be joined by
+    // hand — same pattern the admin inspections queue already uses.
+    const products = await prisma.product.findMany({
+      where: { id: { in: rows.map((s) => s.productId) } },
+    });
+    const byId = new Map(products.map((p) => [p.id, p]));
+
     res.json({
-      sales: rows.map((s) => ({
-        reference: s.reference,
-        status: s.status,
-        mode: s.mode,
-        offer: money(s.quotedKobo),
-        finalOffer: maybeMoney(s.finalKobo),
-        pickupAt: s.pickupAt,
-        inspected: Boolean(s.inspection?.approvedAt),
-        createdAt: s.createdAt,
-      })),
+      sales: rows.map((s) => {
+        const p = byId.get(s.productId);
+        return {
+          reference: s.reference,
+          title: p ? [p.brand, p.model, p.variant].filter(Boolean).join(" ") : "Device",
+          status: s.status,
+          mode: s.mode,
+          offer: money(s.quotedKobo),
+          finalOffer: maybeMoney(s.finalKobo),
+          pickupAt: s.pickupAt,
+          inspected: Boolean(s.inspection?.approvedAt),
+          createdAt: s.createdAt,
+        };
+      }),
     });
   } catch (err) { next(err); }
 });
