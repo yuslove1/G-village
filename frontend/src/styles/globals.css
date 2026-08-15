@@ -16,14 +16,26 @@
     @apply bg-canvas text-ink font-sans antialiased;
   }
 
-  /* The default focus ring vanishes against the warm surface colour, which
+  /* The default focus ring vanishes against the light surface colour, which
      fails anyone navigating by keyboard. This one is always visible. */
   :focus-visible {
-    @apply outline-none ring-2 ring-teal ring-offset-2 ring-offset-canvas;
+    @apply outline-none ring-2 ring-coral ring-offset-2 ring-offset-canvas;
+  }
+
+  /* Text inputs opt back out of that ring. Browsers treat any focus on a
+     text field as "focus-visible" — including a plain mouse click, not just
+     Tab — so the rule above was drawing a ring every time someone tapped
+     into a field to type, not just for keyboard nav. Every text input in
+     the app already shows focus its own way (Field's border turns coral via
+     focus-within; the couple of bare search boxes get the same treatment
+     inline), so nothing loses focus visibility by losing the ring here. */
+  input:focus-visible,
+  textarea:focus-visible {
+    @apply ring-0 ring-offset-0;
   }
 
   ::selection {
-    @apply bg-teal-soft text-ink;
+    @apply bg-coral-soft text-ink;
   }
 
   /* Nigerian numbers get read aloud a lot. Tabular figures keep prices from
@@ -50,6 +62,73 @@
       transparent,
       rgba(255, 255, 255, 0.55),
       transparent
+    );
+  }
+
+  /* Scroll-snap carousels use dots for position, not a scrollbar — a visible
+     track just duplicates that signal and looks like a stray desktop widget
+     on what is otherwise a touch-swipe interaction. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* A badge that reads as cut into the photo's corner rather than a pill
+     floating on top of it. The trick: the tab's own bottom-right corner is
+     rounded, and the two squares beside/below it use a radial-gradient mask
+     to carve a matching concave curve — same radius, opposite direction —
+     so the tab and the photo look like they were sliced from one shape.
+     background-color: inherit on the notches only works if the tab's own
+     background is set as a plain colour (not a gradient), so pair this
+     class with a solid bg-* utility. */
+  .corner-tab {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    z-index: 10;
+    border-end-end-radius: var(--corner-tab-radius, 14px);
+  }
+
+  .corner-tab::before,
+  .corner-tab::after {
+    content: "";
+    position: absolute;
+    inline-size: var(--corner-tab-radius, 14px);
+    block-size: var(--corner-tab-radius, 14px);
+    background-color: inherit;
+  }
+
+  .corner-tab::before {
+    inset-block-start: 0;
+    inset-inline-start: 100%;
+    -webkit-mask-image: radial-gradient(
+      circle at 0 0,
+      transparent var(--corner-tab-radius, 14px),
+      black calc(var(--corner-tab-radius, 14px) + 1px)
+    );
+    mask-image: radial-gradient(
+      circle at 0 0,
+      transparent var(--corner-tab-radius, 14px),
+      black calc(var(--corner-tab-radius, 14px) + 1px)
+    );
+  }
+
+  .corner-tab::after {
+    inset-block-start: 100%;
+    inset-inline-start: 0;
+    -webkit-mask-image: radial-gradient(
+      circle at 0 0,
+      transparent var(--corner-tab-radius, 14px),
+      black calc(var(--corner-tab-radius, 14px) + 1px)
+    );
+    mask-image: radial-gradient(
+      circle at 0 0,
+      transparent var(--corner-tab-radius, 14px),
+      black calc(var(--corner-tab-radius, 14px) + 1px)
     );
   }
 }
