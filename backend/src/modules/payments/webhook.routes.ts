@@ -3,6 +3,7 @@ import { prisma } from "../../lib/prisma.js";
 import { logger } from "../../lib/logger.js";
 import { verifyWebhookSignature } from "../../lib/paystack.js";
 import { settlePayment } from "./payment.service.js";
+import { settleTransfer } from "../payouts/payout.service.js";
 
 export const webhookRouter = Router();
 
@@ -77,6 +78,10 @@ async function processEvent(idempotencyKey: string, eventType: string, reference
   try {
     if (eventType === "charge.success") {
       await settlePayment(reference);
+    } else if (eventType === "transfer.success") {
+      await settleTransfer(reference, "success");
+    } else if (eventType === "transfer.failed" || eventType === "transfer.reversed") {
+      await settleTransfer(reference, "failed", `Paystack reported ${eventType}`);
     }
 
     await prisma.webhookEvent.updateMany({
@@ -113,7 +118,13 @@ export async function replayFailedWebhooks(limit = 20) {
     if (!reference) continue;
 
     try {
-      if (evt.eventType === "charge.success") await settlePayment(reference);
+      if (evt.eventType === "charge.success") {
+        await settlePayment(reference);
+      } else if (evt.eventType === "transfer.success") {
+        await settleTransfer(reference, "success");
+      } else if (evt.eventType === "transfer.failed" || evt.eventType === "transfer.reversed") {
+        await settleTransfer(reference, "failed", `Paystack reported ${evt.eventType}`);
+      }
       await prisma.webhookEvent.update({
         where: { id: evt.id },
         data: { processedAt: new Date(), error: null },
