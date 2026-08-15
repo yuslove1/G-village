@@ -1,6 +1,7 @@
 import type { NextFunction, Request, Response } from "express";
 import { ZodError } from "zod";
 import { Prisma } from "@prisma/client";
+import { MulterError } from "multer";
 import { AppError } from "../lib/errors.js";
 import { logger } from "../lib/logger.js";
 import { env } from "../config/env.js";
@@ -29,6 +30,16 @@ export function errorHandler(err: unknown, req: Request, res: Response, _next: N
     return res.status(err.statusCode).json({
       error: { code: err.code, message: err.message, details: err.details },
     });
+  }
+
+  if (err instanceof MulterError) {
+    const message =
+      err.code === "LIMIT_FILE_SIZE"
+        ? "That photo is too large. Keep it under 8MB."
+        : err.code === "LIMIT_FILE_COUNT" || err.code === "LIMIT_UNEXPECTED_FILE"
+          ? "Too many photos in one upload."
+          : "Could not read that upload.";
+    return res.status(400).json({ error: { code: "bad_upload", message } });
   }
 
   if (err instanceof Prisma.PrismaClientKnownRequestError) {
