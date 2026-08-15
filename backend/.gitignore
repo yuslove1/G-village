@@ -11,5 +11,3 @@ coverage/
 .turbo/
 *.tsbuildinfo
 prisma/*.db
-Gadgetvillage_README.md
-backend/uploads/
