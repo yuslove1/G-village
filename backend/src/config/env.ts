@@ -24,6 +24,24 @@ const schema = z.object({
 
   CORS_ORIGINS: z.string().default(""),
   ORDER_RESERVATION_MINUTES: z.coerce.number().int().positive().default(30),
+
+  // Optional on purpose — unset, uploaded photos fall back to local disk
+  // (see lib/storage.ts). Paste the connection string from the Cloudinary
+  // dashboard (cloudinary://<key>:<secret>@<cloud_name>) and restart the
+  // server; nothing else changes.
+  CLOUDINARY_URL: z.string().optional(),
+
+  // Optional — unset, alert-match emails just log instead of sending (see
+  // lib/email.ts), same pattern as OTP codes before an SMS provider exists.
+  RESEND_API_KEY: z.string().optional(),
+  RESEND_FROM_EMAIL: z.string().email().default("alerts@gadgetvillage.ng"),
+
+  // Optional — unset, "Continue with Google" fails cleanly with a clear error
+  // instead of the button not existing. Get these from the Google Cloud
+  // Console (APIs & Services → Credentials → OAuth client ID, type "Web
+  // application"), authorized JavaScript origin = APP_URL.
+  GOOGLE_CLIENT_ID: z.string().optional(),
+  GOOGLE_CLIENT_SECRET: z.string().optional(),
 });
 
 const parsed = schema.safeParse(process.env);
