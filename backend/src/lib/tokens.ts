@@ -40,6 +40,49 @@ export async function verifyAccessToken(token: string): Promise<AccessClaims> {
   };
 }
 
+const GOOGLE_SIGNUP_AUDIENCE = "gadgetvillage-google-signup";
+
+export interface GoogleSignupClaims {
+  email: string;
+  fullName: string;
+  googleSub: string;
+}
+
+/**
+ * Bridges the two requests a brand-new Google sign-in takes: this app's
+ * identity is phone-first (see auth.routes.ts's phone schema), and Google
+ * never hands over a phone number. Rather than weakening User.phone to
+ * optional for everyone, a verified Google identity gets 10 minutes to come
+ * back with a phone before the claim expires — a distinct audience from
+ * access tokens so the two can never be swapped for each other even though
+ * they share a signing key.
+ */
+export async function signGoogleSignupToken(claims: GoogleSignupClaims): Promise<string> {
+  return new SignJWT({ email: claims.email, fullName: claims.fullName, googleSub: claims.googleSub })
+    .setProtectedHeader({ alg: "HS256", typ: "JWT" })
+    .setIssuer(ISSUER)
+    .setAudience(GOOGLE_SIGNUP_AUDIENCE)
+    .setIssuedAt()
+    .setExpirationTime("10m")
+    .sign(accessKey);
+}
+
+export async function verifyGoogleSignupToken(token: string): Promise<GoogleSignupClaims> {
+  const { payload } = await jwtVerify(token, accessKey, {
+    issuer: ISSUER,
+    audience: GOOGLE_SIGNUP_AUDIENCE,
+    algorithms: ["HS256"],
+  });
+  if (!payload.email || !payload.fullName || !payload.googleSub) {
+    throw new Error("Token is missing required claims");
+  }
+  return {
+    email: payload.email as string,
+    fullName: payload.fullName as string,
+    googleSub: payload.googleSub as string,
+  };
+}
+
 /**
  * Refresh tokens are opaque random strings, not JWTs. There is nothing to gain
  * from making them self-describing, and plenty to lose: an opaque token can be
