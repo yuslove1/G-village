@@ -18,9 +18,12 @@ export function naira(amount: number | string): Kobo {
     throw new Error(`Not a naira amount: ${amount}`);
   }
   const negative = s.startsWith("-");
+  // The regex above already guarantees at least one leading digit, so
+  // `whole` can never actually be undefined here — noUncheckedIndexedAccess
+  // just cannot see that from the split() call alone.
   const [whole, fraction = ""] = s.replace("-", "").split(".");
   const padded = (fraction + "00").slice(0, 2);
-  const total = BigInt(whole) * KOBO_PER_NAIRA + BigInt(padded);
+  const total = BigInt(whole!) * KOBO_PER_NAIRA + BigInt(padded);
   return negative ? -total : total;
 }
 
