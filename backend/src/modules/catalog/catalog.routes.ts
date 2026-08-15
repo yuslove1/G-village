@@ -15,6 +15,7 @@ const listQuery = z.object({
   brand: z.string().trim().max(40).optional(),
   minKobo: z.coerce.bigint().optional(),
   maxKobo: z.coerce.bigint().optional(),
+  verified: z.coerce.boolean().optional(),
   sort: z.enum(["newest", "price_asc", "price_desc"]).default("newest"),
   cursor: z.string().cuid().optional(),
   limit: z.coerce.number().int().min(1).max(48).default(24),
@@ -37,6 +38,7 @@ catalogRouter.get("/listings", optionalAuth, async (req, res, next) => {
             },
           }
         : {}),
+      ...(q.verified ? { inspection: { approvedAt: { not: null } } } : {}),
       product: {
         ...(q.category ? { category: q.category } : {}),
         ...(q.brand ? { brand: { equals: q.brand, mode: "insensitive" as const } } : {}),
