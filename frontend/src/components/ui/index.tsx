@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 /* ------------------------------------------------------------------ Button */
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 font-semibold transition-colors disabled:opacity-45 disabled:pointer-events-none",
+  "inline-flex items-center justify-center gap-2 font-semibold transition-all active:scale-[0.98] disabled:opacity-45 disabled:pointer-events-none",
   {
     variants: {
       variant: {
-        // Ink, not teal. Contrast carries the emphasis so the one accent
-        // colour stays reserved for meaning rather than decoration.
-        primary: "bg-ink text-white hover:bg-ink-soft",
-        outline: "bg-canvas text-ink border border-ink hover:bg-surface",
+        // Coral carries every primary action. One loud colour, used only
+        // for the thing you actually want tapped.
+        primary: "bg-coral text-white shadow-button hover:bg-coral-dark",
+        outline: "bg-canvas text-ink border border-hairline hover:bg-surface",
         quiet: "bg-surface text-ink hover:bg-hairline",
         ghost: "text-ink-muted hover:text-ink hover:bg-surface",
         danger: "bg-danger text-white hover:opacity-90",
@@ -50,8 +50,17 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled || loading}
         {...props}
       >
-        {loading && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
-        {children}
+        {asChild ? (
+          // Slot clones its props onto a single child element — asChild is
+          // for wrapping something like a Link, which never has a loading
+          // state of its own, so it always gets exactly one child.
+          children
+        ) : (
+          <>
+            {loading && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
+            {children}
+          </>
+        )}
       </Comp>
     );
   },
@@ -61,7 +70,7 @@ Button.displayName = "Button";
 /* -------------------------------------------------------------------- Card */
 
 export function Card({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("rounded-card bg-canvas hairline", className)} {...props} />;
+  return <div className={cn("rounded-card bg-canvas shadow-soft hairline", className)} {...props} />;
 }
 
 /* ------------------------------------------------------------------- Badge */
@@ -72,7 +81,7 @@ const badgeVariants = cva(
     variants: {
       tone: {
         neutral: "bg-surface text-ink-muted",
-        teal: "bg-teal-soft text-teal",
+        coral: "bg-coral-soft text-coral-dark",
         amber: "bg-amber-soft text-amber",
         danger: "bg-danger-soft text-danger",
         ink: "bg-ink text-white",
@@ -93,7 +102,7 @@ export function Badge({
 /** Tier colour coding is consistent across every surface in the product. */
 export function TierBadge({ tier }: { tier: string }) {
   const map = {
-    NEW: { tone: "teal" as const, label: "New" },
+    NEW: { tone: "coral" as const, label: "New" },
     UK_USED: { tone: "amber" as const, label: "UK used" },
     NG_USED: { tone: "neutral" as const, label: "Nigeria used" },
   };
@@ -101,10 +110,59 @@ export function TierBadge({ tier }: { tier: string }) {
   return <Badge tone={t.tone}>{t.label}</Badge>;
 }
 
+// Same tier meaning as TierBadge above, but as a corner tab it needs plain
+// text + colour rather than a pill's own bg/padding — kept as one lookup so
+// the three card surfaces that use it (browse grid, popular grid, carousel)
+// can't drift from each other.
+const TIER_TAB = {
+  NEW: { label: "New", text: "text-coral" },
+  UK_USED: { label: "UK used", text: "text-amber" },
+  NG_USED: { label: "Nigeria used", text: "text-ink-muted" },
+} as const;
+
+/** The badge that reads as cut into a photo's corner — see .corner-tab in
+ * globals.css for the concave-curve mechanics. */
+export function CornerTab({ tier, className }: { tier: string; className?: string }) {
+  const t = TIER_TAB[tier as keyof typeof TIER_TAB] ?? TIER_TAB.NEW;
+  return (
+    <span
+      className={cn(
+        "corner-tab flex items-center bg-canvas px-3 py-1.5 text-[11px] font-bold lg:px-3.5 lg:py-2 lg:text-xs",
+        t.text,
+        className,
+      )}
+    >
+      {t.label}
+    </span>
+  );
+}
+
+/** Price as a solid accent pill instead of plain text — the one thing on a
+ * listing card that should out-weigh the title. */
+export function PricePill({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement>) {
+  return (
+    <span
+      className={cn(
+        "tabular inline-block rounded-pill bg-coral px-3 py-1 text-[13px] font-bold text-white lg:px-4 lg:py-1.5 lg:text-sm",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+/** A solid dot carries the "verified" meaning on its own — the classic
+ * social-app checkmark badge — so the label next to it can sit in ordinary
+ * ink instead of fighting the mint for attention. */
 export function VerifiedMark({ label = "Verified" }: { label?: string }) {
   return (
-    <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-teal">
-      <Check className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden />
+    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-ink-muted lg:text-xs">
+      <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-mint lg:h-5 lg:w-5">
+        <Check className="h-2.5 w-2.5 text-white lg:h-3 lg:w-3" strokeWidth={4} aria-hidden />
+      </span>
       {label}
     </span>
   );
@@ -135,7 +193,7 @@ export const Field = React.forwardRef<HTMLInputElement, FieldProps>(
         </label>
         <div
           className={cn(
-            "flex h-12 items-center rounded-card border bg-canvas px-4 transition-colors focus-within:border-ink",
+            "flex h-12 items-center rounded-card border bg-canvas px-4 transition-colors focus-within:border-coral",
             error ? "border-danger" : "border-hairline",
           )}
         >
@@ -191,7 +249,7 @@ export function ChoiceCard({
       aria-pressed={selected}
       className={cn(
         "flex w-full items-start gap-3 rounded-card border p-4 text-left transition-colors",
-        selected ? "border-teal bg-teal-soft" : "border-hairline bg-canvas hover:bg-surface",
+        selected ? "border-coral bg-coral-soft" : "border-hairline bg-canvas hover:bg-surface",
       )}
     >
       {icon && <span className="mt-0.5 shrink-0 text-ink">{icon}</span>}
@@ -203,7 +261,7 @@ export function ChoiceCard({
       <span
         className={cn(
           "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border",
-          selected ? "border-teal bg-teal" : "border-ink-faint",
+          selected ? "border-coral bg-coral" : "border-ink-faint",
         )}
         aria-hidden
       >
@@ -248,12 +306,20 @@ export function EmptyState({
 
 /* ------------------------------------------------------------ Page heading */
 
-export function PageHeading({ children, sub }: { children: string; sub?: string }) {
+export function PageHeading({
+  children,
+  sub,
+  className,
+}: {
+  children: string;
+  sub?: string;
+  className?: string;
+}) {
   return (
-    <header className="px-6 pb-4 pt-2">
+    <header className={cn("px-6 pb-4 pt-2", className)}>
       <h1 className="font-display text-display-md text-ink">
         {children}
-        <span className="text-teal">.</span>
+        <span className="text-coral">.</span>
       </h1>
       {sub && <p className="mt-1.5 text-sm text-ink-muted">{sub}</p>}
     </header>
