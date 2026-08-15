@@ -3,7 +3,7 @@ import { prisma } from "../../lib/prisma.js";
 import { logger } from "../../lib/logger.js";
 import { badRequest, conflict, notFound } from "../../lib/errors.js";
 import { postJournal, SYSTEM_ACCOUNTS } from "../../lib/ledger.js";
-import { initTransaction, verifyTransaction } from "../../lib/paystack.js";
+import { chargeAuthorization, initTransaction, verifyTransaction } from "../../lib/paystack.js";
 import { env } from "../../config/env.js";
 import { nanoid } from "nanoid";
 
@@ -20,6 +20,7 @@ export async function startPayment(opts: {
   userId: string;
   email: string;
   channel: PaymentChannel;
+  savedCardId?: string;
 }) {
   const order = await prisma.order.findUnique({
     where: { id: opts.orderId },
@@ -48,7 +49,27 @@ export async function startPayment(opts: {
   });
 
   if (opts.channel === PaymentChannel.CASH_ON_DELIVERY) {
-    return { paymentId: payment.id, reference, authorizationUrl: null };
+    return { paymentId: payment.id, reference, authorizationUrl: null, paid: undefined as boolean | undefined };
+  }
+
+  if (opts.savedCardId) {
+    const card = await prisma.savedCard.findUnique({ where: { id: opts.savedCardId } });
+    if (!card || card.userId !== opts.userId) throw notFound("That saved card");
+
+    // charge_authorization is synchronous — Paystack processes it inline,
+    // there is no redirect to send anyone to. Its own response is still not
+    // trusted on its own: settlePayment() re-verifies with Paystack directly
+    // before touching the order, same as the webhook and browser-redirect
+    // paths. The webhook will also fire for this reference; settlePayment is
+    // idempotent, so whichever call lands first wins and the other is a no-op.
+    await chargeAuthorization({
+      email: opts.email,
+      amountKobo: order.totalKobo,
+      authorizationCode: card.authorizationCode,
+      reference,
+    });
+    const settled = await settlePayment(reference);
+    return { paymentId: payment.id, reference, authorizationUrl: null, paid: settled.paid };
   }
 
   const init = await initTransaction({
@@ -64,6 +85,7 @@ export async function startPayment(opts: {
     paymentId: payment.id,
     reference,
     authorizationUrl: init.authorization_url,
+    paid: undefined as boolean | undefined,
   };
 }
 
@@ -81,7 +103,7 @@ export async function settlePayment(reference: string) {
   if (!payment) throw notFound("That payment");
 
   if (payment.status === PaymentStatus.SUCCESS) {
-    return { alreadySettled: true, orderId: payment.orderId };
+    return { alreadySettled: true, orderId: payment.orderId, paid: true };
   }
 
   // Ask Paystack. Do not trust whatever prompted this call.
@@ -181,7 +203,49 @@ export async function settlePayment(reference: string) {
     return fresh.id;
   });
 
+  // Best-effort, outside the money transaction on purpose — a saved-card
+  // write failing must never roll back a payment that has actually cleared.
+  if (verified.authorization?.reusable) {
+    await saveCardIfReusable(payment.order.userId, verified.authorization).catch((err) => {
+      logger.error({ err, orderId }, "failed to save card authorization");
+    });
+  }
+
   return { alreadySettled: false, orderId, paid: true };
+}
+
+/**
+ * Upserts on authorization_code, Paystack's own stable id for "this card,
+ * this integration" — a returning customer paying with the same card lands
+ * on the same row instead of piling up duplicates, and refreshes last4/expiry
+ * in the rare case a reissued card keeps the same authorization.
+ */
+async function saveCardIfReusable(
+  userId: string,
+  auth: NonNullable<Awaited<ReturnType<typeof verifyTransaction>>["authorization"]>,
+) {
+  const existingCount = await prisma.savedCard.count({ where: { userId } });
+
+  await prisma.savedCard.upsert({
+    where: { authorizationCode: auth.authorizationCode },
+    create: {
+      userId,
+      authorizationCode: auth.authorizationCode,
+      last4: auth.last4,
+      expMonth: auth.expMonth,
+      expYear: auth.expYear,
+      cardType: auth.cardType,
+      bank: auth.bank,
+      isDefault: existingCount === 0,
+    },
+    update: {
+      last4: auth.last4,
+      expMonth: auth.expMonth,
+      expYear: auth.expYear,
+      cardType: auth.cardType,
+      bank: auth.bank,
+    },
+  });
 }
 
 /**
