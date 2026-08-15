@@ -90,6 +90,16 @@ export async function initTransaction(args: InitTransactionArgs) {
   return data;
 }
 
+export interface CardAuthorization {
+  authorizationCode: string;
+  last4: string;
+  expMonth: string;
+  expYear: string;
+  cardType: string;
+  bank: string | null;
+  reusable: boolean;
+}
+
 export interface VerifiedTransaction {
   status: string;      // "success" is the only one that means paid
   reference: string;
@@ -97,7 +107,34 @@ export interface VerifiedTransaction {
   channel: string;
   paidAt: Date | null;
   feesKobo: Kobo;
+  // Present on card transactions only. Paystack returns this shape on every
+  // charge, but authorization_code is only ever safe to store for future use
+  // when reusable is true — some banks issue single-use authorizations.
+  authorization: CardAuthorization | null;
   raw: unknown;
+}
+
+interface PaystackAuthorizationPayload {
+  authorization_code: string;
+  last4: string;
+  exp_month: string;
+  exp_year: string;
+  card_type: string;
+  bank: string | null;
+  reusable: boolean;
+}
+
+function parseAuthorization(a: PaystackAuthorizationPayload | null | undefined): CardAuthorization | null {
+  if (!a?.authorization_code) return null;
+  return {
+    authorizationCode: a.authorization_code,
+    last4: a.last4,
+    expMonth: a.exp_month,
+    expYear: a.exp_year,
+    cardType: a.card_type,
+    bank: a.bank,
+    reusable: a.reusable,
+  };
 }
 
 /**
@@ -112,6 +149,7 @@ export async function verifyTransaction(reference: string): Promise<VerifiedTran
     channel: string;
     paid_at: string | null;
     fees: number | null;
+    authorization?: PaystackAuthorizationPayload;
   }>(`/transaction/verify/${encodeURIComponent(reference)}`);
 
   return {
@@ -121,8 +159,37 @@ export async function verifyTransaction(reference: string): Promise<VerifiedTran
     channel: data.channel,
     paidAt: data.paid_at ? new Date(data.paid_at) : null,
     feesKobo: BigInt(data.fees ?? 0),
+    authorization: parseAuthorization(data.authorization),
     raw: data,
   };
+}
+
+/**
+ * Charges a previously-saved card directly — no redirect, no hosted page.
+ * Still not trusted on its own: the caller re-runs verifyTransaction() before
+ * marking anything paid, same as every other payment path in this app. This
+ * call only decides whether there is a redirect to send the browser to.
+ */
+export async function chargeAuthorization(args: {
+  email: string;
+  amountKobo: Kobo;
+  authorizationCode: string;
+  reference: string;
+}): Promise<{ status: string; reference: string }> {
+  const { data } = await call<{ status: string; reference: string }>(
+    "/transaction/charge_authorization",
+    {
+      method: "POST",
+      body: JSON.stringify({
+        email: args.email,
+        amount: args.amountKobo.toString(),
+        authorization_code: args.authorizationCode,
+        reference: args.reference,
+        currency: "NGN",
+      }),
+    },
+  );
+  return data;
 }
 
 export async function resolveAccount(accountNumber: string, bankCode: string) {
@@ -137,4 +204,57 @@ export async function listBanks() {
     "/bank?country=nigeria&currency=NGN",
   );
   return data;
+}
+
+/**
+ * Registers a payout destination with Paystack and gets back a recipient
+ * code, the only thing initiateTransfer needs. Done once, at the moment a
+ * seller adds the account (see payout.routes.ts) — not stored ourselves is
+ * the underlying account number, only what Paystack hands back.
+ */
+export async function createTransferRecipient(args: {
+  name: string;
+  accountNumber: string;
+  bankCode: string;
+}): Promise<{ recipientCode: string }> {
+  const { data } = await call<{ recipient_code: string }>("/transferrecipient", {
+    method: "POST",
+    body: JSON.stringify({
+      type: "nuban",
+      name: args.name,
+      account_number: args.accountNumber,
+      bank_code: args.bankCode,
+      currency: "NGN",
+    }),
+  });
+  return { recipientCode: data.recipient_code };
+}
+
+/**
+ * Starts a transfer. This is an initiation, not a settlement — Paystack
+ * accounts with transfer OTP enabled will come back with status "otp" and
+ * need a dashboard step to finalise, and even a "success" here is provisional
+ * until the transfer.success webhook confirms it. Nothing in this app marks a
+ * payout settled, or reduces what a seller is owed, until that webhook lands
+ * (see webhook.routes.ts) — same rule as verifying a card payment before
+ * trusting it.
+ */
+export async function initiateTransfer(args: {
+  amountKobo: Kobo;
+  recipientCode: string;
+  reference: string;
+  reason: string;
+}): Promise<{ transferCode: string; status: string }> {
+  const { data } = await call<{ transfer_code: string; status: string }>("/transfer", {
+    method: "POST",
+    body: JSON.stringify({
+      source: "balance",
+      amount: args.amountKobo.toString(),
+      recipient: args.recipientCode,
+      reference: args.reference,
+      reason: args.reason,
+      currency: "NGN",
+    }),
+  });
+  return { transferCode: data.transfer_code, status: data.status };
 }
